@@ -1,0 +1,82 @@
+{
+  "projects": [
+    {
+      "projectName": "My Dream ",
+      "plotSize": 2500,
+      "floors": 2,
+      "location": "Chennai, Tamil Nadu",
+      "constructionType": "Mixed-Use",
+      "materialQuality": "Standard",
+      "budgetRange": "40-50 Lakhs",
+      "rooms": 4,
+      "bedrooms": 2,
+      "kitchens": 1,
+      "totalCost": 14000000,
+      "breakdown": {
+        "materials": 7280000,
+        "labor": 3920000,
+        "interior": 2100000,
+        "tax": 700000
+      },
+      "status": "In Progress",
+      "date": "May 2026"
+    },
+    {
+      "projectName": "My Dream House",
+      "plotSize": 1500,
+      "floors": 2,
+      "location": "Bangalore, Karnataka",
+      "constructionType": "Residential",
+      "materialQuality": "Standard",
+      "budgetRange": "40-50 Lakhs",
+      "totalCost": 6376276,
+      "rooms": 8,
+      "bedrooms": 5,
+      "kitchens": 2,
+      "breakdown": {
+        "materials": 2348551,
+        "labor": 2506140,
+        "interior": 1074060,
+        "tax": 447525
+      },
+      "baseMaterialsCost": 2345000
+    }
+  ],
+  "activeProject": {
+    "projectName": "My Dream House",
+    "plotSize": 1500,
+    "floors": 2,
+    "location": "Bangalore, Karnataka",
+    "constructionType": "Residential",
+    "materialQuality": "Standard",
+    "budgetRange": "40-50 Lakhs",
+    "totalCost": 6376276,
+    "rooms": 8,
+    "bedrooms": 5,
+    "kitchens": 2,
+    "breakdown": {
+      "materials": 2348551,
+      "labor": 2506140,
+      "interior": 1074060,
+      "tax": 447525
+    },
+    "baseMaterialsCost": 2345000
+  },
+  "cart": [
+    {
+      "name": "Cement (50kg bag)",
+      "pricePerUnit": 420,
+      "quantity": 8
+    },
+    {
+      "name": "Steel TMT (per kg)",
+      "pricePerUnit": 68,
+      "quantity": 2
+    },
+    {
+      "name": "Sand (per cu.ft)",
+      "pricePerUnit": 55,
+      "quantity": 1
+    }
+  ]
+}
