@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BrickBrain AI</string>
+    <string name="title_activity_main">BrickBrain AI</string>
+    <string name="package_name">ai.brickbrain.app</string>
+    <string name="custom_url_scheme">ai.brickbrain.app</string>
+</resources>
