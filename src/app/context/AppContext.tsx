@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:3001' : window.location.origin);
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 // Interfaces
 export interface UserProfile {
@@ -117,8 +117,8 @@ interface AppContextType {
   notifications: NotificationItem[];
   requiredList: RequiredMaterial[];
   projects: ProjectEstimate[];
-  token: string | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   
   updateUser: (data: Partial<UserProfile>) => void;
   calculateEstimate: (inputs: Omit<ProjectEstimate, 'totalCost' | 'breakdown'>) => void;
@@ -144,106 +144,113 @@ interface AppContextType {
   
   login: (email: string, password: string) => Promise<boolean>;
   signup: (formData: any) => Promise<boolean>;
+  googleLogin: (credential: string) => Promise<boolean>;
   logout: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const DEFAULT_PROJECT: ProjectEstimate = {
+  projectName: 'My Dream House',
+  plotSize: 1500,
+  floors: 2,
+  location: 'Bangalore, Karnataka',
+  constructionType: 'Residential',
+  materialQuality: 'Premium',
+  budgetRange: '40-50 Lakhs',
+  totalCost: 4567890,
+  rooms: 4,
+  bedrooms: 2,
+  kitchens: 1,
+  breakdown: {
+    materials: 2345000,
+    labor: 1245000,
+    interior: 876000,
+    tax: 201890
+  }
+};
+
+const DEFAULT_SETTINGS: AppSettings = {
+  darkMode: true,
+  currency: 'INR',
+  language: 'English',
+  notificationsEnabled: true
+};
+
+// Fetch wrapper that always includes credentials (cookies)
+function apiFetch(url: string, options: RequestInit = {}): Promise<Response> {
+  return fetch(url, {
+    ...options,
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    },
+  });
+}
+
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Authentication states
-  const [token, setToken] = useState<string | null>(() => localStorage.getItem('brickbrain_token'));
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => !!localStorage.getItem('brickbrain_token'));
+  // Auth state — no localStorage, determined by server response
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Initialize States
-  const [projects, setProjects] = useState<ProjectEstimate[]>(() => {
-    const saved = localStorage.getItem('brickbrain_projects');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    return [
-      {
-        projectName: 'My Dream House',
-        plotSize: 1500,
-        floors: 2,
-        location: 'Bangalore, Karnataka',
-        constructionType: 'Residential',
-        materialQuality: 'Premium',
-        budgetRange: '45-50 Lakhs',
-        totalCost: 4567890,
-        rooms: 4,
-        bedrooms: 2,
-        kitchens: 1,
-        breakdown: {
-          materials: 2345000,
-          labor: 1245000,
-          interior: 876000,
-          tax: 201890
-        }
-      }
-    ];
-  });
-
+  // All state starts empty — populated exclusively from server
+  const [projects, setProjects] = useState<ProjectEstimate[]>([]);
   const [user, setUser] = useState<UserProfile>({
-    name: 'Demo Builder',
-    email: 'demo@brickbrain.ai',
+    name: '',
+    email: '',
     role: 'Homeowner',
-    phone: '+91 98765 43210'
+    phone: ''
   });
-
-  const [project, setProject] = useState<ProjectEstimate>({
-    projectName: 'My Dream House',
-    plotSize: 1500,
-    floors: 2,
-    location: 'Bangalore, Karnataka',
-    constructionType: 'Residential',
-    materialQuality: 'Premium',
-    budgetRange: '40-50 Lakhs',
-    totalCost: 4567890,
-    rooms: 4,
-    bedrooms: 2,
-    kitchens: 1,
-    breakdown: {
-      materials: 2345000,
-      labor: 1245000,
-      interior: 876000,
-      tax: 201890
-    }
-  });
-
-  const [requiredList, setRequiredList] = useState<RequiredMaterial[]>(() => {
-    const saved = localStorage.getItem('requiredMaterials');
-    return saved ? JSON.parse(saved) : [];
-  });
-
+  const [project, setProject] = useState<ProjectEstimate>(DEFAULT_PROJECT);
+  const [requiredList, setRequiredList] = useState<RequiredMaterial[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [milestones, setMilestones] = useState<Milestone[]>([]);
   const [workers, setWorkers] = useState<Worker[]>([]);
   const [detections, setDetections] = useState<Defect[]>([]);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
-  const [settings, setSettings] = useState<AppSettings>({
-    darkMode: true,
-    currency: 'INR',
-    language: 'English',
-    notificationsEnabled: true
-  });
+  const [settings, setSettings] = useState<AppSettings>(DEFAULT_SETTINGS);
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
-  // Helper to sync arbitrary state updates with server
+  // Helper to populate all state from a server response
+  const hydrateState = useCallback((data: any) => {
+    if (data.projects) setProjects(data.projects);
+    if (data.activeProject) setProject(data.activeProject);
+    if (data.cart) setRequiredList(data.cart);
+    if (data.expenses) setExpenses(data.expenses);
+    if (data.milestones) setMilestones(data.milestones);
+    if (data.workers) setWorkers(data.workers);
+    if (data.detections) setDetections(data.detections);
+    if (data.chatMessages) setChatMessages(data.chatMessages);
+    if (data.invoices) setInvoices(data.invoices);
+    if (data.settings) setSettings(data.settings);
+    if (data.notifications) setNotifications(data.notifications);
+    if (data.profile) setUser(data.profile);
+  }, []);
+
+  // Reset all state to empty
+  const resetState = useCallback(() => {
+    setProjects([]);
+    setProject(DEFAULT_PROJECT);
+    setRequiredList([]);
+    setExpenses([]);
+    setMilestones([]);
+    setWorkers([]);
+    setDetections([]);
+    setChatMessages([]);
+    setInvoices([]);
+    setSettings(DEFAULT_SETTINGS);
+    setNotifications([]);
+    setUser({ name: '', email: '', role: 'Homeowner', phone: '' });
+  }, []);
+
+  // Helper to sync state updates with server
   const syncStateWithServer = async (updatedFields: any) => {
-    if (!token) return;
+    if (!isAuthenticated) return;
     try {
-      await fetch(`${API_URL}/api/state`, {
+      await apiFetch(`${API_URL}/api/state`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify(updatedFields)
       });
     } catch (e) {
@@ -260,6 +267,29 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       root.classList.remove('dark');
     }
   }, [settings.darkMode]);
+
+  // Check auth status on mount — cookie is sent automatically
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await apiFetch(`${API_URL}/api/state`);
+        if (res.ok) {
+          const data = await res.json();
+          hydrateState(data);
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          resetState();
+        }
+      } catch (e) {
+        console.warn("Could not connect to backend server on startup.");
+        setIsAuthenticated(false);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    checkAuth();
+  }, [hydrateState, resetState]);
 
   // Actions
   const updateUser = (data: Partial<UserProfile>) => {
@@ -292,35 +322,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const newProject: ProjectEstimate = {
       ...inputs,
       totalCost: calculatedTotal,
-      breakdown: {
-        materials,
-        labor,
-        interior,
-        tax
-      },
+      breakdown: { materials, labor, interior, tax },
       status: 'In Progress',
       date: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
     };
 
-    setProject(newProject);
+    const updatedProj = { ...newProject, status: 'In Progress' as const };
     
-    const updatedProj = {
-      ...newProject,
-      status: 'In Progress' as const
-    };
-    
-    let nextProjectsList: ProjectEstimate[] = [];
-    setProjects(prev => {
-      const exists = prev.some(p => p.projectName.toLowerCase() === newProject.projectName.toLowerCase());
-      if (exists) {
-        nextProjectsList = prev.map(p => p.projectName.toLowerCase() === newProject.projectName.toLowerCase() ? updatedProj : p);
-      } else {
-        nextProjectsList = [updatedProj, ...prev];
-      }
-      localStorage.setItem('brickbrain_projects', JSON.stringify(nextProjectsList));
-      return nextProjectsList;
-    });
+    // Compute nextProjectsList synchronously
+    const exists = projects.some(p => p.projectName.toLowerCase() === newProject.projectName.toLowerCase());
+    const nextProjectsList = exists
+      ? projects.map(p => p.projectName.toLowerCase() === newProject.projectName.toLowerCase() ? updatedProj : p)
+      : [updatedProj, ...projects];
 
+    // Compute nextNotificationsList synchronously
     const alertId = (notifications.length + 1).toString();
     const newNotification: NotificationItem = {
       id: alertId,
@@ -329,12 +344,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       time: 'Just now',
       read: false
     };
-    setNotifications(prev => [newNotification, ...prev]);
+    const nextNotificationsList = [newNotification, ...notifications];
+
+    setProject(updatedProj);
+    setProjects(nextProjectsList);
+    setNotifications(nextNotificationsList);
 
     syncStateWithServer({
       projects: nextProjectsList,
       activeProject: updatedProj,
-      notifications: [newNotification, ...notifications]
+      notifications: nextNotificationsList
     });
   };
 
@@ -353,42 +372,35 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       date: today
     };
     
-    setExpenses(prev => {
-      const nextExp = [newExp, ...prev];
-      setInvoices(prevInv => {
-        const nextInv = [newInv, ...prevInv];
-        syncStateWithServer({ expenses: nextExp, invoices: nextInv });
-        return nextInv;
-      });
-      return nextExp;
-    });
+    const nextExp = [newExp, ...expenses];
+    const nextInv = [newInv, ...invoices];
+
+    setExpenses(nextExp);
+    setInvoices(nextInv);
+    syncStateWithServer({ expenses: nextExp, invoices: nextInv });
   };
 
   const toggleMilestone = (id: string) => {
-    setMilestones(prev => {
-      const next = prev.map(m => {
-        if (m.id === id) {
-          const nextStatus = m.status === 'completed' ? 'pending' : 'completed';
-          return {
-            ...m,
-            status: nextStatus,
-            progress: nextStatus === 'completed' ? 100 : 0,
-            date: nextStatus === 'completed' ? new Date().toISOString().split('T')[0] : 'Pending'
-          };
-        }
-        return m;
-      });
-      syncStateWithServer({ milestones: next });
-      return next;
+    const next = milestones.map(m => {
+      if (m.id === id) {
+        const nextStatus = m.status === 'completed' ? 'pending' : 'completed';
+        return {
+          ...m,
+          status: nextStatus,
+          progress: nextStatus === 'completed' ? 100 : 0,
+          date: nextStatus === 'completed' ? new Date().toISOString().split('T')[0] : 'Pending'
+        };
+      }
+      return m;
     });
+    setMilestones(next);
+    syncStateWithServer({ milestones: next });
   };
 
   const setAttendance = (id: string, status: 'Present' | 'Absent') => {
-    setWorkers(prev => {
-      const next = prev.map(w => (w.id === id ? { ...w, status } : w));
-      syncStateWithServer({ workers: next });
-      return next;
-    });
+    const next = workers.map(w => (w.id === id ? { ...w, status } : w));
+    setWorkers(next);
+    syncStateWithServer({ workers: next });
   };
 
   const addWorker = (worker: Omit<Worker, 'id'>) => {
@@ -396,11 +408,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       ...worker,
       id: Math.random().toString(36).substr(2, 9)
     };
-    setWorkers(prev => {
-      const next = [...prev, newWorker];
-      syncStateWithServer({ workers: next });
-      return next;
-    });
+    const next = [...workers, newWorker];
+    setWorkers(next);
+    syncStateWithServer({ workers: next });
   };
 
   const uploadSitePhoto = async (imageSrc: string) => {
@@ -431,15 +441,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           read: false
         };
 
-        setDetections(prev => {
-          const nextDetections = [newDefect, ...prev];
-          setNotifications(prevNotifications => {
-            const nextNotifications = [newNotification, ...prevNotifications];
-            syncStateWithServer({ detections: nextDetections, notifications: nextNotifications });
-            return nextNotifications;
-          });
-          return nextDetections;
-        });
+        const nextDetections = [newDefect, ...detections];
+        const nextNotifications = [newNotification, ...notifications];
+
+        setDetections(nextDetections);
+        setNotifications(nextNotifications);
+        syncStateWithServer({ detections: nextDetections, notifications: nextNotifications });
 
         resolve();
       }, 1500);
@@ -447,11 +454,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const resolveDefect = (id: string) => {
-    setDetections(prev => {
-      const next = prev.map(d => (d.id === id ? { ...d, status: 'Resolved' } : d));
-      syncStateWithServer({ detections: next });
-      return next;
-    });
+    const next = detections.map(d => (d.id === id ? { ...d, status: 'Resolved' } : d));
+    setDetections(next);
+    syncStateWithServer({ detections: next });
   };
 
   const sendChatMessage = (text: string) => {
@@ -465,35 +470,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       time: timeString
     };
 
-    setChatMessages(prev => {
-      const nextUserMsgs = [...prev, userMsg];
-      syncStateWithServer({ chatMessages: nextUserMsgs });
+    const nextUserMsgs = [...chatMessages, userMsg];
+    setChatMessages(nextUserMsgs);
+    syncStateWithServer({ chatMessages: nextUserMsgs });
 
-      setTimeout(() => {
-        const contractorResponses = [
-          "Noted! I will instruct the site supervisors about this immediately.",
-          "We are on it. I will send you a photo update of the progress in an hour.",
-          "Yes, the cement bags are safely stacked. We are starting plastering tomorrow.",
-          "The electrician has completed 80% of the conduit routing. Plumbing is scheduled next."
-        ];
-        
-        const replyText = contractorResponses[Math.floor(Math.random() * contractorResponses.length)];
-        const replyMsg: ChatMessage = {
-          id: Math.random().toString(),
-          sender: 'contractor',
-          text: replyText,
-          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        };
+    setTimeout(() => {
+      const contractorResponses = [
+        "Noted! I will instruct the site supervisors about this immediately.",
+        "We are on it. I will send you a photo update of the progress in an hour.",
+        "Yes, the cement bags are safely stacked. We are starting plastering tomorrow.",
+        "The electrician has completed 80% of the conduit routing. Plumbing is scheduled next."
+      ];
+      
+      const replyText = contractorResponses[Math.floor(Math.random() * contractorResponses.length)];
+      const replyMsg: ChatMessage = {
+        id: Math.random().toString(),
+        sender: 'contractor',
+        text: replyText,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
 
-        setChatMessages(prev2 => {
-          const nextContractorMsgs = [...prev2, replyMsg];
-          syncStateWithServer({ chatMessages: nextContractorMsgs });
-          return nextContractorMsgs;
-        });
-      }, 1500);
-
-      return nextUserMsgs;
-    });
+      setChatMessages(prev => {
+        const nextContractorMsgs = [...prev, replyMsg];
+        syncStateWithServer({ chatMessages: nextContractorMsgs });
+        return nextContractorMsgs;
+      });
+    }, 1500);
   };
 
   const addInvoice = (invoice: Omit<Invoice, 'id' | 'date'>) => {
@@ -503,27 +505,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       id: `INV-${Math.floor(1000 + Math.random() * 9000)}`,
       date: today
     };
-    setInvoices(prev => {
-      const next = [newInv, ...prev];
-      syncStateWithServer({ invoices: next });
-      return next;
-    });
+    const next = [newInv, ...invoices];
+    setInvoices(next);
+    syncStateWithServer({ invoices: next });
   };
 
   const payInvoice = (id: string) => {
-    setInvoices(prev => {
-      const next = prev.map(inv => (inv.id === id ? { ...inv, status: 'Paid' } : inv));
-      syncStateWithServer({ invoices: next });
-      return next;
-    });
+    const next = invoices.map(inv => (inv.id === id ? { ...inv, status: 'Paid' } : inv));
+    setInvoices(next);
+    syncStateWithServer({ invoices: next });
   };
 
   const updateSettings = (newSettings: Partial<AppSettings>) => {
-    setSettings(prev => {
-      const next = { ...prev, ...newSettings };
-      syncStateWithServer({ settings: next });
-      return next;
-    });
+    const next = { ...settings, ...newSettings };
+    setSettings(next);
+    syncStateWithServer({ settings: next });
   };
 
   const clearNotifications = () => {
@@ -532,89 +528,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const markNotificationRead = (id: string) => {
-    setNotifications(prev => {
-      const next = prev.map(n => (n.id === id ? { ...n, read: true } : n));
-      syncStateWithServer({ notifications: next });
-      return next;
-    });
+    const next = notifications.map(n => (n.id === id ? { ...n, read: true } : n));
+    setNotifications(next);
+    syncStateWithServer({ notifications: next });
   };
 
-  // Load State from Backend on mount / token change
-  useEffect(() => {
-    const fetchInitialState = async () => {
-      if (!token) return;
-      try {
-        const res = await fetch(`${API_URL}/api/state`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (res.ok) {
-          const db = await res.json();
-          if (db.projects) {
-            setProjects(db.projects);
-            localStorage.setItem('brickbrain_projects', JSON.stringify(db.projects));
-          }
-          if (db.activeProject) setProject(db.activeProject);
-          if (db.cart) {
-            setRequiredList(db.cart);
-            localStorage.setItem('requiredMaterials', JSON.stringify(db.cart));
-          }
-          if (db.expenses) setExpenses(db.expenses);
-          if (db.milestones) setMilestones(db.milestones);
-          if (db.workers) setWorkers(db.workers);
-          if (db.detections) setDetections(db.detections);
-          if (db.chatMessages) setChatMessages(db.chatMessages);
-          if (db.invoices) {
-            setInvoices(db.invoices);
-            localStorage.setItem('brickbrain_invoices', JSON.stringify(db.invoices));
-          }
-          if (db.settings) setSettings(db.settings);
-          if (db.notifications) setNotifications(db.notifications);
-          if (db.profile) setUser(db.profile);
-        } else if (res.status === 401) {
-          logout();
-        }
-      } catch (e) {
-        console.warn("Could not connect to backend server on startup. Running in local/offline mode.");
-      }
-    };
-
-    fetchInitialState();
-  }, [token]);
-
-  // Sync requiredList to localStorage
-  useEffect(() => {
-    localStorage.setItem('requiredMaterials', JSON.stringify(requiredList));
-  }, [requiredList]);
-
-  // Sync invoices to localStorage
-  useEffect(() => {
-    localStorage.setItem('brickbrain_invoices', JSON.stringify(invoices));
-  }, [invoices]);
-
   const updateProject = async (data: Partial<ProjectEstimate>) => {
-    let nextProj: ProjectEstimate;
-    setProject(prev => {
-      nextProj = { ...prev, ...data };
-      setProjects(prevProjects => {
-        const exists = prevProjects.some(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase());
-        if (exists) {
-          const nextList = prevProjects.map(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase() ? nextProj : p);
-          localStorage.setItem('brickbrain_projects', JSON.stringify(nextList));
-          return nextList;
-        }
-        return prevProjects;
-      });
-      return nextProj;
-    });
+    const nextProj = { ...project, ...data };
+    
+    const nextProjectsList = projects.some(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase())
+      ? projects.map(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase() ? nextProj : p)
+      : projects;
+
+    setProject(nextProj);
+    setProjects(nextProjectsList);
 
     try {
-      await fetch(`${API_URL}/api/project`, {
+      await apiFetch(`${API_URL}/api/project`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ project: nextProj! })
+        body: JSON.stringify({ project: nextProj })
       });
     } catch (e) {
       console.warn("Backend update failed.");
@@ -629,23 +561,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
     setProjects(prev => {
       const exists = prev.some(p => p.projectName.toLowerCase() === proj.projectName.toLowerCase());
-      let next;
       if (exists) {
-        next = prev.map(p => p.projectName.toLowerCase() === proj.projectName.toLowerCase() ? updatedProj : p);
+        return prev.map(p => p.projectName.toLowerCase() === proj.projectName.toLowerCase() ? updatedProj : p);
       } else {
-        next = [updatedProj, ...prev];
+        return [updatedProj, ...prev];
       }
-      localStorage.setItem('brickbrain_projects', JSON.stringify(next));
-      return next;
     });
 
     try {
-      await fetch(`${API_URL}/api/project`, {
+      await apiFetch(`${API_URL}/api/project`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify({ project: updatedProj })
       });
     } catch (e) {
@@ -655,17 +580,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const deleteProject = async (name: string) => {
     setProjects(prev => {
-      const next = prev.filter(p => p.projectName.toLowerCase() !== name.toLowerCase());
-      localStorage.setItem('brickbrain_projects', JSON.stringify(next));
-      return next;
+      return prev.filter(p => p.projectName.toLowerCase() !== name.toLowerCase());
     });
 
     try {
-      await fetch(`${API_URL}/api/projects/${encodeURIComponent(name)}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+      await apiFetch(`${API_URL}/api/projects/${encodeURIComponent(name)}`, {
+        method: 'DELETE'
       });
     } catch (e) {
       console.warn("Backend delete failed.");
@@ -685,12 +605,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     try {
       const nextQty = existingItem ? existingItem.quantity + 1 : 1;
-      const res = await fetch(`${API_URL}/api/cart`, {
+      const res = await apiFetch(`${API_URL}/api/cart`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify({ item: { name, pricePerUnit: price, quantity: nextQty } })
       });
       if (res.ok) {
@@ -717,12 +633,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const item = requiredList.find(r => r.name === name);
       const pricePerUnit = item ? item.pricePerUnit : 0;
-      const res = await fetch(`${API_URL}/api/cart`, {
+      const res = await apiFetch(`${API_URL}/api/cart`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify({ item: { name, pricePerUnit, quantity } })
       });
       if (res.ok) {
@@ -740,12 +652,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setRequiredList(prev => prev.filter(item => item.name !== name));
 
     try {
-      const res = await fetch(`${API_URL}/api/cart`, {
+      const res = await apiFetch(`${API_URL}/api/cart`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify({ item: { name, quantity: 0 } })
       });
       if (res.ok) {
@@ -767,12 +675,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setRequiredList(nextCart);
 
     try {
-      const res = await fetch(`${API_URL}/api/cart`, {
+      const res = await apiFetch(`${API_URL}/api/cart`, {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
         body: JSON.stringify({ cart: nextCart })
       });
       if (res.ok) {
@@ -788,30 +692,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const login = async (emailInput: string, passwordInput: string): Promise<boolean> => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/login`, {
+      const res = await apiFetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: emailInput, password: passwordInput })
       });
       if (res.ok) {
         const data = await res.json();
-        localStorage.setItem('brickbrain_token', data.token);
-        setToken(data.token);
         setIsAuthenticated(true);
         if (data.profile) setUser(data.profile);
         if (data.userState) {
-          const db = data.userState;
-          if (db.projects) setProjects(db.projects);
-          if (db.activeProject) setProject(db.activeProject);
-          if (db.cart) setRequiredList(db.cart);
-          if (db.expenses) setExpenses(db.expenses);
-          if (db.milestones) setMilestones(db.milestones);
-          if (db.workers) setWorkers(db.workers);
-          if (db.detections) setDetections(db.detections);
-          if (db.chatMessages) setChatMessages(db.chatMessages);
-          if (db.invoices) setInvoices(db.invoices);
-          if (db.settings) setSettings(db.settings);
-          if (db.notifications) setNotifications(db.notifications);
+          hydrateState(data.userState);
         }
         return true;
       } else {
@@ -827,30 +717,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const signup = async (formData: any): Promise<boolean> => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/register`, {
+      const res = await apiFetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
       if (res.ok) {
         const data = await res.json();
-        localStorage.setItem('brickbrain_token', data.token);
-        setToken(data.token);
         setIsAuthenticated(true);
         if (data.profile) setUser(data.profile);
         if (data.userState) {
-          const db = data.userState;
-          if (db.projects) setProjects(db.projects);
-          if (db.activeProject) setProject(db.activeProject);
-          if (db.cart) setRequiredList(db.cart);
-          if (db.expenses) setExpenses(db.expenses);
-          if (db.milestones) setMilestones(db.milestones);
-          if (db.workers) setWorkers(db.workers);
-          if (db.detections) setDetections(db.detections);
-          if (db.chatMessages) setChatMessages(db.chatMessages);
-          if (db.invoices) setInvoices(db.invoices);
-          if (db.settings) setSettings(db.settings);
-          if (db.notifications) setNotifications(db.notifications);
+          hydrateState(data.userState);
         }
         return true;
       } else {
@@ -864,44 +740,46 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('brickbrain_token');
-    setToken(null);
-    setIsAuthenticated(false);
-    setUser({
-      name: 'Demo Builder',
-      email: 'demo@brickbrain.ai',
-      role: 'Homeowner',
-      phone: '+91 98765 43210'
-    });
-    setProjects([]);
-    setProject({
-      projectName: 'My Dream House',
-      plotSize: 1500,
-      floors: 2,
-      location: 'Bangalore, Karnataka',
-      constructionType: 'Residential',
-      materialQuality: 'Premium',
-      budgetRange: '40-50 Lakhs',
-      totalCost: 4567890,
-      rooms: 4,
-      bedrooms: 2,
-      kitchens: 1,
-      breakdown: {
-        materials: 2345000,
-        labor: 1245000,
-        interior: 876000,
-        tax: 201890
+  const googleLogin = async (credential: string): Promise<boolean> => {
+    try {
+      const res = await apiFetch(`${API_URL}/api/auth/google`, {
+        method: 'POST',
+        body: JSON.stringify({ credential })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setIsAuthenticated(true);
+        if (data.profile) setUser(data.profile);
+        if (data.userState) {
+          hydrateState(data.userState);
+        }
+        return true;
+      } else {
+        const err = await res.json();
+        alert(err.error || 'Google login failed');
+        return false;
       }
-    });
-    setRequiredList([]);
-    setExpenses([]);
-    setMilestones([]);
-    setWorkers([]);
-    setDetections([]);
-    setChatMessages([]);
-    setInvoices([]);
-    setNotifications([]);
+    } catch (e) {
+      alert('Could not connect to authentication server.');
+      return false;
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await apiFetch(`${API_URL}/api/auth/logout`, { method: 'POST' });
+    } catch (e) {
+      // Continue with local logout even if server call fails
+    }
+    // Clear any remaining localStorage items from old versions
+    localStorage.removeItem('brickbrain_token');
+    localStorage.removeItem('brickbrain_projects');
+    localStorage.removeItem('requiredMaterials');
+    localStorage.removeItem('brickbrain_invoices');
+    localStorage.removeItem('brickbrain_chat_history');
+
+    setIsAuthenticated(false);
+    resetState();
   };
 
   return (
@@ -918,8 +796,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         settings,
         notifications,
         requiredList,
-        token,
         isAuthenticated,
+        isLoading,
         updateUser,
         calculateEstimate,
         addExpense,
@@ -944,6 +822,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         updateCartPrices,
         login,
         signup,
+        googleLogin,
         logout
       }}
     >

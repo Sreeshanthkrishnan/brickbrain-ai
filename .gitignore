@@ -3,3 +3,5 @@ dist/
 .env
 .DS_Store
 *.log
+backend_db_local.json
+

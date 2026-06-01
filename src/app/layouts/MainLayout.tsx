@@ -108,15 +108,26 @@ const navSections: NavSection[] = [
 export default function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, isAuthenticated } = useApp();
+  const { user, isAuthenticated, isLoading } = useApp();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isLoading && !isAuthenticated) {
       navigate('/login');
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, isLoading, navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[#0B1F3A] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-[#FF6B00] border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-white/70 text-sm font-medium">Loading your workspace...</p>
+        </div>
+      </div>
+    );
+  }
 
   const isActive = (path: string) => location.pathname === path;
 
