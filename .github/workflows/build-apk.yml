@@ -27,7 +27,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install Dependencies
@@ -37,8 +37,7 @@ jobs:
         run: npm run build
 
       - name: Sync Capacitor
-        run: |
-          npx cap sync android > sync_error.log 2>&1 || (curl -d @sync_error.log https://ntfy.sh/brickbrain_actions_errors && exit 1)
+        run: npx cap sync android
 
       - name: Build Android App (APK)
         run: |
