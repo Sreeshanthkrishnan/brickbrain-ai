@@ -7,8 +7,8 @@ export default function LoginScreen() {
   const navigate = useNavigate();
   const { login, googleLogin } = useApp();
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('demo@brickbrain.ai');
-  const [password, setPassword] = useState('Brick@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -48,7 +48,7 @@ export default function LoginScreen() {
             text: 'signin_with',
             shape: 'rectangular',
             logo_alignment: 'left',
-            width: 180
+            width: 380
           }
         );
       }
@@ -156,17 +156,10 @@ export default function LoginScreen() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 items-center">
-              <button
-                type="button"
-                className="glass-light border border-white/10 rounded-xl py-2 flex items-center justify-center gap-2 hover:bg-white/10 transition-all h-[40px]"
-              >
-                <Fingerprint className="w-5 h-5 text-[#FF6B00]" />
-                <span className="text-white/90 font-medium text-sm">Face ID</span>
-              </button>
+            <div className="flex justify-center w-full">
               <div
                 id="google-signin-btn"
-                className="flex justify-center items-center h-[40px] overflow-hidden rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all"
+                className="flex justify-center items-center h-[40px] w-full overflow-hidden rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all"
               ></div>
             </div>
           </form>
@@ -180,13 +173,6 @@ export default function LoginScreen() {
               Sign up
             </button>
           </p>
-
-          <div className="glass rounded-2xl p-4 mt-4">
-            <p className="text-sm text-white/60 text-center">
-              Demo Credentials:<br />
-              <span className="text-[#FF6B00]">demo@brickbrain.ai</span> / <span className="text-[#FF6B00]">Brick@123</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>
