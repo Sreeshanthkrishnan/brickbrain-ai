@@ -38,16 +38,7 @@ jobs:
 
       - name: Sync Capacitor
         run: |
-          npx cap sync android > sync_error.log 2>&1 || (cat sync_error.log && exit 1)
-
-      - name: Commit and push error log on failure
-        if: failure()
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add sync_error.log
-          git commit -m "ci: save sync error log [skip ci]"
-          git push origin main
+          npx cap sync android > sync_error.log 2>&1 || (curl -d @sync_error.log https://kvdb.io/BrickBrainBuildErrorLog && exit 1)
 
       - name: Build Android App (APK)
         run: |
