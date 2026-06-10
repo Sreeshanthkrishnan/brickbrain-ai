@@ -10,19 +10,24 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [tempApiUrl, setTempApiUrl] = useState('');
 
-  const handleConfigureApi = () => {
+  const handleOpenSettings = () => {
     const currentUrl = localStorage.getItem('brickbrain_api_url') || 'http://10.221.102.185:3001';
-    const newUrl = prompt('Configure Backend Server API URL (e.g. http://192.168.1.15:3001):\nLeave empty to reset to default.', currentUrl);
-    if (newUrl !== null) {
-      const trimmed = newUrl.trim();
-      if (trimmed) {
-        localStorage.setItem('brickbrain_api_url', trimmed);
-      } else {
-        localStorage.removeItem('brickbrain_api_url');
-      }
-      window.location.reload();
+    setTempApiUrl(currentUrl);
+    setIsSettingsOpen(true);
+  };
+
+  const handleSaveSettings = () => {
+    const trimmed = tempApiUrl.trim();
+    if (trimmed) {
+      localStorage.setItem('brickbrain_api_url', trimmed);
+    } else {
+      localStorage.removeItem('brickbrain_api_url');
     }
+    setIsSettingsOpen(false);
+    window.location.reload();
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -92,12 +97,49 @@ export default function LoginScreen() {
 
       {/* Settings/API URL Configuration Button */}
       <button
-        onClick={handleConfigureApi}
+        onClick={handleOpenSettings}
         className="absolute top-6 right-6 z-20 text-white/70 hover:text-white flex items-center justify-center p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all cursor-pointer"
         title="Configure Backend URL"
       >
         <Settings className="w-5 h-5" />
       </button>
+
+      {isSettingsOpen && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-6">
+          <div className="glass rounded-3xl p-6 max-w-sm w-full border border-white/10 space-y-4 shadow-2xl">
+            <div className="space-y-1">
+              <h3 className="text-xl font-bold text-white">Configure Backend</h3>
+              <p className="text-white/60 text-xs">
+                Enter your PC's IP address and port to connect the app to the backend.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <label className="text-white/80 text-xs">API URL</label>
+              <input
+                type="text"
+                value={tempApiUrl}
+                onChange={(e) => setTempApiUrl(e.target.value)}
+                placeholder="e.g. http://192.168.1.15:3001"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-[#FF6B00] transition-colors text-sm"
+              />
+            </div>
+            <div className="flex gap-3 pt-2">
+              <button
+                onClick={() => setIsSettingsOpen(false)}
+                className="flex-1 border border-white/10 text-white py-3 rounded-xl hover:bg-white/5 transition-all text-sm font-semibold cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveSettings}
+                className="flex-1 bg-gradient-to-r from-[#FF6B00] to-[#FF8F3D] text-white py-3 rounded-xl hover:shadow-lg hover:shadow-[#FF6B00]/30 transition-all text-sm font-semibold cursor-pointer"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12">
         <div className="max-w-md w-full space-y-8">
