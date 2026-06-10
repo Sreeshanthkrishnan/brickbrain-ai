@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Mail, Lock, Eye, EyeOff, Fingerprint, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, Fingerprint, ArrowLeft, Settings } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function LoginScreen() {
@@ -10,6 +10,20 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  const handleConfigureApi = () => {
+    const currentUrl = localStorage.getItem('brickbrain_api_url') || 'http://10.221.102.185:3001';
+    const newUrl = prompt('Configure Backend Server API URL (e.g. http://192.168.1.15:3001):\nLeave empty to reset to default.', currentUrl);
+    if (newUrl !== null) {
+      const trimmed = newUrl.trim();
+      if (trimmed) {
+        localStorage.setItem('brickbrain_api_url', trimmed);
+      } else {
+        localStorage.removeItem('brickbrain_api_url');
+      }
+      window.location.reload();
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,6 +88,15 @@ export default function LoginScreen() {
       >
         <ArrowLeft className="w-5 h-5" />
         Back
+      </button>
+
+      {/* Settings/API URL Configuration Button */}
+      <button
+        onClick={handleConfigureApi}
+        className="absolute top-6 right-6 z-20 text-white/70 hover:text-white flex items-center justify-center p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all cursor-pointer"
+        title="Configure Backend URL"
+      >
+        <Settings className="w-5 h-5" />
       </button>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12">

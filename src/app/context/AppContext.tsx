@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' && (window as any).Capacitor ? 'http://10.221.102.185:3001' : '');
+const API_URL = (typeof window !== 'undefined' && localStorage.getItem('brickbrain_api_url')) || import.meta.env.VITE_API_URL || (typeof window !== 'undefined' && (window as any).Capacitor ? 'http://10.221.102.185:3001' : '');
 
 // Interfaces
 export interface UserProfile {
