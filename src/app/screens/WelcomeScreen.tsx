@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Building2, LogIn, UserPlus, UserCheck, Settings } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function WelcomeScreen() {
   const navigate = useNavigate();
+  const { guestLogin } = useApp();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [tempApiUrl, setTempApiUrl] = useState('');
 
@@ -111,7 +113,10 @@ export default function WelcomeScreen() {
             </button>
 
             <button
-              onClick={() => navigate('/app/dashboard')}
+              onClick={() => {
+                guestLogin();
+                navigate('/app/dashboard');
+              }}
               className="w-full border border-white/20 text-white/80 py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/5 transition-all"
             >
               <UserCheck className="w-5 h-5" />

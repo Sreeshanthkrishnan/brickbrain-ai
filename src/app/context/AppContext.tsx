@@ -145,6 +145,7 @@ interface AppContextType {
   login: (email: string, password: string) => Promise<boolean>;
   signup: (formData: any) => Promise<boolean>;
   googleLogin: (credential: string) => Promise<boolean>;
+  guestLogin: () => void;
   logout: () => void;
 }
 
@@ -710,8 +711,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         return false;
       }
     } catch (e) {
-      alert('Could not connect to authentication server.');
-      return false;
+      console.warn('Could not connect to authentication server. Entering Offline Demo Mode.');
+      setIsAuthenticated(true);
+      setUser({
+        name: (emailInput && emailInput.split('@')[0]) || 'Demo User',
+        email: emailInput || 'demo@brickbrain.ai',
+        role: 'Homeowner',
+        phone: '1234567890'
+      });
+      return true;
     }
   };
 
@@ -735,8 +743,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         return false;
       }
     } catch (e) {
-      alert('Could not connect to authentication server.');
-      return false;
+      console.warn('Could not connect to authentication server. Entering Offline Demo Mode.');
+      setIsAuthenticated(true);
+      setUser({
+        name: formData.name || 'Demo User',
+        email: formData.email || 'demo@brickbrain.ai',
+        role: formData.role || 'Homeowner',
+        phone: formData.phone || ''
+      });
+      return true;
     }
   };
 
@@ -760,9 +775,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         return false;
       }
     } catch (e) {
-      alert('Could not connect to authentication server.');
-      return false;
+      console.warn('Could not connect to authentication server. Entering Offline Demo Mode.');
+      setIsAuthenticated(true);
+      setUser({
+        name: 'Google User',
+        email: 'googleuser@brickbrain.ai',
+        role: 'Homeowner',
+        phone: ''
+      });
+      return true;
     }
+  };
+
+  const guestLogin = () => {
+    setIsAuthenticated(true);
+    setUser({
+      name: 'Guest User',
+      email: 'guest@brickbrain.ai',
+      role: 'Homeowner',
+      phone: ''
+    });
   };
 
   const logout = async () => {
@@ -823,6 +855,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         login,
         signup,
         googleLogin,
+        guestLogin,
         logout
       }}
     >
