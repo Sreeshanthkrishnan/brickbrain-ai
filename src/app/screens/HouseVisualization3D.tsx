@@ -615,7 +615,7 @@ export default function HouseVisualization3D() {
             </div>
 
             {/* SVG Render viewport */}
-            <div className="glass rounded-3xl p-6 aspect-video flex flex-col justify-between relative overflow-hidden min-h-[460px] border border-white/10">
+            <div className="glass rounded-3xl p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden min-h-[350px] sm:min-h-[460px] border border-white/10">
               
               {/* Overlay rendering steps spinner */}
               {isGenerating && (
@@ -686,7 +686,7 @@ export default function HouseVisualization3D() {
 
               {/* Dynamic SVG Construction Rendering */}
               <div className="flex-1 flex items-center justify-center relative z-0">
-                <div className="w-96 h-96">
+                <div className="w-[280px] h-[280px] sm:w-96 sm:h-96">
                   
                   {/* VIEW 1: ELEVATION (Front facade Sketch with porch furniture) */}
                   {viewMode === 'elevation' && (

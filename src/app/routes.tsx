@@ -30,12 +30,10 @@ import ProjectProgress from "./screens/ProjectProgress";
 import TeamManagement from "./screens/TeamManagement";
 import AttendanceMonitoring from "./screens/AttendanceMonitoring";
 import PaymentTracking from "./screens/PaymentTracking";
-import NotificationsScreen from "./screens/NotificationsScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import AINewsScreen from "./screens/AINewsScreen";
 import ProjectsScreen from "./screens/ProjectsScreen";
 import UserProfile from "./screens/UserProfile";
-import SubscriptionPlans from "./screens/SubscriptionPlans";
 import CustomerSupport from "./screens/CustomerSupport";
 import FAQScreen from "./screens/FAQScreen";
 import AboutBrickBrain from "./screens/AboutBrickBrain";
@@ -100,12 +98,10 @@ export const router = createBrowserRouter([
       { path: "team", element: <TeamManagement /> },
       { path: "attendance", element: <AttendanceMonitoring /> },
       { path: "payments", element: <PaymentTracking /> },
-      { path: "notifications", element: <NotificationsScreen /> },
       { path: "settings", element: <SettingsScreen /> },
       { path: "ai-news", element: <AINewsScreen /> },
       { path: "projects", element: <ProjectsScreen /> },
       { path: "profile", element: <UserProfile /> },
-      { path: "subscription", element: <SubscriptionPlans /> },
       { path: "support", element: <CustomerSupport /> },
       { path: "faq", element: <FAQScreen /> },
       { path: "about", element: <AboutBrickBrain /> },

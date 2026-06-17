@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, Send, Bot } from 'lucide-react';
+import { useNavigate } from 'react-router';
+import { MessageCircle, Send, Bot, ArrowLeft } from 'lucide-react';
 
 interface ChatMsg {
   sender: 'bot' | 'user';
@@ -8,6 +9,7 @@ interface ChatMsg {
 }
 
 export default function CustomerSupport() {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<ChatMsg[]>([
     { sender: 'bot', message: 'Hello! I am BrickBrain AI Assistant. How can I help you today?', time: '10:00 AM' }
   ]);
@@ -92,111 +94,173 @@ export default function CustomerSupport() {
 
   return (
     <div className="min-h-screen p-4 lg:p-8">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-            <MessageCircle className="w-8 h-8 text-[#FF6B00]" />
-            Customer Support
-          </h1>
-          <p className="text-white/70 mt-1">24/7 AI-powered support at your service</p>
+      <div className="max-w-6xl mx-auto space-y-6">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/app/dashboard')}
+            className="p-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl transition-all border border-white/10 cursor-pointer flex items-center justify-center flex-shrink-0"
+            title="Back to Dashboard"
+          >
+            <ArrowLeft className="w-5 h-5 text-white/80" />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+              <MessageCircle className="w-8 h-8 text-[#FF6B00]" />
+              Customer Support
+            </h1>
+            <p className="text-white/70 mt-1">24/7 AI-powered support at your service</p>
+          </div>
         </div>
 
-        <div className="glass rounded-3xl p-6 flex flex-col h-[600px]">
-          <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B00] to-[#FF8F3D] rounded-full flex items-center justify-center">
-              <Bot className="w-6 h-6 text-white" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Chat Interface Column */}
+          <div className="lg:col-span-2 glass rounded-3xl p-6 flex flex-col h-[600px]">
+            <div className="flex items-center gap-3 pb-4 border-b border-white/10">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B00] to-[#FF8F3D] rounded-full flex items-center justify-center">
+                <Bot className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-white font-semibold">BrickBrain AI Support</p>
+                <p className="text-white/60 text-sm flex items-center gap-1">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Always Available
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-white font-semibold">BrickBrain AI Support</p>
-              <p className="text-white/60 text-sm flex items-center gap-1">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                Always Available
-              </p>
-            </div>
-          </div>
 
-          <div className="flex-1 overflow-y-auto py-6 space-y-4 pr-1">
-            {messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div className="flex items-start gap-2.5 max-w-[80%]">
-                  {msg.sender === 'bot' && (
+            <div className="flex-1 overflow-y-auto py-6 space-y-4 pr-1">
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div className="flex items-start gap-2.5 max-w-[80%]">
+                    {msg.sender === 'bot' && (
+                      <div className="w-8 h-8 rounded-full bg-white/10 flex-shrink-0 flex items-center justify-center text-white text-xs">
+                        🤖
+                      </div>
+                    )}
+                    <div
+                      className={`rounded-2xl p-4 ${
+                        msg.sender === 'user'
+                          ? 'bg-gradient-to-r from-[#FF6B00] to-[#FF8F3D] text-white rounded-tr-none'
+                          : 'glass text-white rounded-tl-none'
+                      }`}
+                    >
+                      <p className="text-sm whitespace-pre-line mb-1 leading-relaxed">{msg.message}</p>
+                      <p className={`text-[10px] text-right ${msg.sender === 'user' ? 'text-white/80' : 'text-white/60'}`}>
+                        {msg.time}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="flex items-start gap-2.5 max-w-[80%]">
                     <div className="w-8 h-8 rounded-full bg-white/10 flex-shrink-0 flex items-center justify-center text-white text-xs">
                       🤖
                     </div>
-                  )}
-                  <div
-                    className={`rounded-2xl p-4 ${
-                      msg.sender === 'user'
-                        ? 'bg-gradient-to-r from-[#FF6B00] to-[#FF8F3D] text-white rounded-tr-none'
-                        : 'glass text-white rounded-tl-none'
-                    }`}
-                  >
-                    <p className="text-sm whitespace-pre-line mb-1 leading-relaxed">{msg.message}</p>
-                    <p className={`text-[10px] text-right ${msg.sender === 'user' ? 'text-white/80' : 'text-white/60'}`}>
-                      {msg.time}
-                    </p>
+                    <div className="glass rounded-2xl rounded-tl-none p-4 text-white/50 text-sm flex items-center gap-1.5">
+                      <span>Typing</span>
+                      <span className="animate-pulse">...</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className="flex items-start gap-2.5 max-w-[80%]">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex-shrink-0 flex items-center justify-center text-white text-xs">
-                    🤖
-                  </div>
-                  <div className="glass rounded-2xl rounded-tl-none p-4 text-white/50 text-sm flex items-center gap-1.5">
-                    <span>Typing</span>
-                    <span className="animate-pulse">...</span>
-                  </div>
-                </div>
-              </div>
-            )}
-            <div ref={chatEndRef} />
-          </div>
-
-          <div className="pt-4 border-t border-white/10 space-y-3">
-            <div className="flex flex-wrap gap-2">
-              {quickActions.map((action, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleQuickAction(action)}
-                  className="glass px-3 py-2 rounded-lg text-white text-xs hover:bg-white/10 hover:border-[#FF6B00]/40 transition-all border border-white/5 cursor-pointer"
-                >
-                  {action}
-                </button>
-              ))}
+              )}
+              <div ref={chatEndRef} />
             </div>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendMessage(inputValue);
-              }}
-              className="flex items-center gap-3"
-            >
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Type your question..."
-                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF6B00] transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-[#FF6B00] to-[#FF8F3D] p-3 rounded-xl hover:shadow-lg hover:shadow-[#FF6B00]/50 transition-all cursor-pointer"
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <div className="flex flex-wrap gap-2">
+                {quickActions.map((action, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleQuickAction(action)}
+                    className="glass px-3 py-2 rounded-lg text-white text-xs hover:bg-white/10 hover:border-[#FF6B00]/40 transition-all border border-white/5 cursor-pointer"
+                  >
+                    {action}
+                  </button>
+                ))}
+              </div>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSendMessage(inputValue);
+                }}
+                className="flex items-center gap-3"
               >
-                <Send className="w-5 h-5 text-white" />
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="Type your question..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-[#FF6B00] to-[#FF8F3D] p-3 rounded-xl hover:shadow-lg hover:shadow-[#FF6B00]/50 transition-all cursor-pointer flex-shrink-0"
+                >
+                  <Send className="w-5 h-5 text-white" />
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Capabilities Info Column */}
+          <div className="glass rounded-3xl p-6 space-y-6 flex flex-col justify-between h-[600px]">
+            <div className="space-y-4">
+              <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                <Bot className="w-5 h-5 text-[#FF6B00]" />
+                AI Agent Capabilities
+              </h3>
+              <p className="text-white/60 text-xs leading-relaxed">
+                Our AI Support Agent is optimized to guide you through coordinating your building project:
+              </p>
+              
+              <div className="space-y-3 overflow-y-auto max-h-[380px] pr-1">
+                <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 space-y-1">
+                  <h4 className="text-white font-semibold text-xs">👥 Team & Workers</h4>
+                  <p className="text-white/50 text-[11px] leading-relaxed">
+                    Ask how to register personnel, track daily logs, assign wage rates, and log attendances.
+                  </p>
+                </div>
+                
+                <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 space-y-1">
+                  <h4 className="text-white font-semibold text-xs">📊 Estimation & Budgets</h4>
+                  <p className="text-white/50 text-[11px] leading-relaxed">
+                    Ask how to generate structural cost estimates, manage expenses, and view market sand/cement prices.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 space-y-1">
+                  <h4 className="text-white font-semibold text-xs">🏠 3D Visualizer & Models</h4>
+                  <p className="text-white/50 text-[11px] leading-relaxed">
+                    Ask how to customize colors, zoom foundation structures, or toggle utility layers.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 space-y-1">
+                  <h4 className="text-white font-semibold text-xs">📰 Industry News & Tips</h4>
+                  <p className="text-white/50 text-[11px] leading-relaxed">
+                    Ask about soil bearing profiles, monsoon safety guidelines, and cement waste reductions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-white/10">
+              <button
+                onClick={handleConnectAgent}
+                className="w-full py-2.5 bg-white/5 hover:bg-[#FF6B00] hover:text-white border border-white/10 text-white text-xs font-semibold rounded-xl transition-all cursor-pointer text-center"
+              >
+                Connect Human Representative
               </button>
-            </form>
+            </div>
           </div>
         </div>
-
-        {/* Human assistance section removed */}
       </div>
     </div>
   );

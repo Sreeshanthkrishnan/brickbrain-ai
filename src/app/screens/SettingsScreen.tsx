@@ -57,12 +57,9 @@ export default function SettingsScreen() {
                 <select
                   value={settings.language}
                   onChange={(e) => updateSettings({ language: e.target.value })}
-                  className="bg-[#0b1329] text-white border border-white/10 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  className="bg-card text-foreground border border-border rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
                 >
                   <option value="English">English</option>
-                  <option value="Hindi">हिन्दी (Hindi)</option>
-                  <option value="Kannada">ಕನ್ನಡ (Kannada)</option>
-                  <option value="Spanish">Español (Spanish)</option>
                 </select>
               </div>
 
@@ -72,63 +69,18 @@ export default function SettingsScreen() {
                   <div>
                     <p className="text-white font-medium">Currency</p>
                     <p className="text-white/60 text-sm">
-                      {settings.currency === 'INR' && 'Indian Rupee (₹)'}
-                      {settings.currency === 'USD' && 'US Dollar ($)'}
-                      {settings.currency === 'EUR' && 'Euro (€)'}
+                      Indian Rupee (₹)
                     </p>
                   </div>
                 </div>
                 <select
                   value={settings.currency}
-                  onChange={(e) => updateSettings({ currency: e.target.value as 'INR' | 'USD' | 'EUR' })}
-                  className="bg-[#0b1329] text-white border border-white/10 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  onChange={(e) => updateSettings({ currency: e.target.value as 'INR' })}
+                  className="bg-card text-foreground border border-border rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
                 >
                   <option value="INR">INR (₹)</option>
-                  <option value="USD">USD ($)</option>
-                  <option value="EUR">EUR (€)</option>
                 </select>
               </div>
-            </div>
-          </div>
-
-          {/* Notifications */}
-          <div>
-            <h2 className="text-xl font-bold text-white mb-4">Notifications</h2>
-            <div className="glass rounded-xl p-5">
-              <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/5">
-                <div className="flex items-center gap-3">
-                  <Bell className="w-6 h-6 text-[#FF6B00]" />
-                  <div>
-                    <p className="text-white font-medium">Push Notifications</p>
-                    <p className="text-white/60 text-sm">Receive alerts and updates</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => updateSettings({ notificationsEnabled: !settings.notificationsEnabled })}
-                  className={`w-12 h-6 rounded-full relative transition-colors ${
-                    settings.notificationsEnabled ? 'bg-[#FF6B00]' : 'bg-white/10'
-                  }`}
-                >
-                  <div
-                    className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${
-                      settings.notificationsEnabled ? 'right-1' : 'left-1'
-                    }`}
-                  ></div>
-                </button>
-              </div>
-
-              {settings.notificationsEnabled && (
-                <div className="space-y-3 ml-9">
-                  {['Price Alerts', 'Milestone Updates', 'Payment Reminders', 'AI Recommendations'].map((item) => (
-                    <div key={item} className="flex items-center justify-between py-2">
-                      <p className="text-white/70 text-sm">{item}</p>
-                      <button className="w-10 h-5 bg-[#FF6B00] rounded-full relative">
-                        <div className="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>

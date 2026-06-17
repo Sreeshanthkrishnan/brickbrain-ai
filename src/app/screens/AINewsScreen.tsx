@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Newspaper, Search, Calendar, Clock, ArrowUpRight, ShieldAlert, Sparkles, BookOpen, DollarSign } from 'lucide-react';
+import { useNavigate } from 'react-router';
+import { Newspaper, Search, Calendar, Clock, ArrowUpRight, ShieldAlert, Sparkles, BookOpen, DollarSign, ArrowLeft } from 'lucide-react';
 
 interface Article {
   id: string;
@@ -13,7 +14,18 @@ interface Article {
   icon: any;
 }
 
+const getRelativeDateString = (daysAgo: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() - daysAgo);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+};
+
 export default function AINewsScreen() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -27,7 +39,7 @@ export default function AINewsScreen() {
       category: 'Construction',
       summary: 'How 3D printing is reducing material waste by 60% and lowering home building costs in suburban developments.',
       content: '3D concrete printing is shifting from a futuristic novelty to a practical construction method. By using automated robotic arms that layer specialized concrete mixes, builders can create complex curved walls and structural components in a fraction of standard framing times. This technology reduces material waste by up to 60% and significantly limits active labor requirements, making it a promising solution for affordable and sustainable housing. Industry experts predict that by 2030, nearly 10% of new residential starts in major urban areas will utilize some form of 3D printing technology.',
-      date: 'May 30, 2026',
+      date: getRelativeDateString(0),
       readTime: '4 min read',
       color: 'from-blue-500/20 to-indigo-500/20 border-blue-500/30',
       icon: Sparkles
@@ -38,7 +50,7 @@ export default function AINewsScreen() {
       category: 'Materials',
       summary: 'Market analysis forecasts an easing of import tariffs and increased local production, leading to price stabilization.',
       content: 'A recent comprehensive analysis of global and domestic logistics indices reveals an impending price adjustment in key construction raw materials. Due to the suspension of local environmental tariffs on coal and a 12% rise in domestic steel mill output, the wholesale price of structural steel and grade-53 OPC cement is projected to fall by approximately 3.5% to 5% across major regions like Bangalore, Mumbai, and Delhi. Builders are advised to delay bulk procurement by 2–3 weeks to leverage these upcoming savings.',
-      date: 'May 28, 2026',
+      date: getRelativeDateString(1),
       readTime: '3 min read',
       color: 'from-[#FF6B00]/20 to-[#FF8F3D]/20 border-[#FF6B00]/30',
       icon: DollarSign
@@ -49,7 +61,7 @@ export default function AINewsScreen() {
       category: 'Safety',
       summary: 'As monsoon season approaches, review critical scaffolding safety rules and electrical insulation practices.',
       content: 'Site safety becomes paramount during monsoon cycles. Wet scaffolding, muddy footing hazards, and waterlogged excavation pits pose major structural risks. The National Safety Council recommends weekly scaffold anchor inspection checks, installing rubber-matted wire lines, grounding all portable power generators, and enforcing high-visibility rain gear. Ensuring proper site drainage and tarp coverings for exposed rebar can prevent costly rust damage and work stoppages.',
-      date: 'May 25, 2026',
+      date: getRelativeDateString(2),
       readTime: '5 min read',
       color: 'from-red-500/20 to-orange-500/20 border-red-500/30',
       icon: ShieldAlert
@@ -60,7 +72,7 @@ export default function AINewsScreen() {
       category: 'Budget',
       summary: 'Learn how to optimize trenching depths, choose local aggregate grades, and reduce concrete wastage.',
       content: 'The foundation consumes roughly 15-20% of your total construction budget. Saving costs here requires precision rather than compromising quality. Key strategies include: 1) Executing soil test profiles early to avoid over-engineering footings, 2) Ordering ready-mix concrete (RMC) from local suppliers within a 15km radius to reduce transit delays, 3) Reusing wooden formwork shuttering up to 4 times, and 4) Sourcing local stone aggregate grades. Preventing cement dust runoff can reduce overall waste by 8%.',
-      date: 'May 22, 2026',
+      date: getRelativeDateString(4),
       readTime: '6 min read',
       color: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
       icon: BookOpen
@@ -71,7 +83,7 @@ export default function AINewsScreen() {
       category: 'Construction',
       summary: 'How fly ash and industrial slag composites are creating carbon-negative foundations with higher compression strength.',
       content: 'Green concrete, which replaces Portland cement with industrial fly ash, blast furnace slag, or silica fume, is gaining massive traction. This composite not only diverts waste from landfills but also reacts chemically to form a tighter molecular matrix, which yields up to 15% higher compressive strength over a 90-day curing cycle. In addition to shrinking the project carbon footprint, green concrete is highly resistant to acid rain and sulfate corrosion, making it perfect for coastal regions like Goa and Kerala.',
-      date: 'May 18, 2026',
+      date: getRelativeDateString(5),
       readTime: '4 min read',
       color: 'from-blue-500/20 to-indigo-500/20 border-blue-500/30',
       icon: Sparkles
@@ -82,7 +94,7 @@ export default function AINewsScreen() {
       category: 'Materials',
       summary: 'New government sand mining quotas in western states set to relieve dry supply shortages and lower truck rates.',
       content: 'Supply constraints for fine river sand are expected to ease following the release of new riverbed mining quotas. Over the past six months, sand price inflation reached record highs, forcing many builders to pivot to Manufactured Sand (M-Sand). The recent policy change will increase natural sand supply by an estimated 25%, bringing truck rates down by ₹2,000 to ₹3,500. M-Sand remain the recommended alternative for structural plastering due to its uniform grain grading and lack of organic impurities.',
-      date: 'May 15, 2026',
+      date: getRelativeDateString(7),
       readTime: '3 min read',
       color: 'from-[#FF6B00]/20 to-[#FF8F3D]/20 border-[#FF6B00]/30',
       icon: DollarSign
@@ -100,7 +112,14 @@ export default function AINewsScreen() {
     <div className="min-h-screen p-4 lg:p-8">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/app/dashboard')}
+            className="p-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl transition-all border border-white/10 cursor-pointer flex items-center justify-center flex-shrink-0"
+            title="Back to Dashboard"
+          >
+            <ArrowLeft className="w-5 h-5 text-white/80" />
+          </button>
           <div>
             <h1 className="text-3xl font-bold text-white flex items-center gap-2">
               <Newspaper className="w-8 h-8 text-[#FF6B00]" />

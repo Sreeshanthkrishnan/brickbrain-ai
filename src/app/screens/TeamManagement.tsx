@@ -104,7 +104,16 @@ export default function TeamManagement() {
                       </p>
                       <p className="flex items-center gap-1.5">
                         <Phone className="w-3.5 h-3.5 text-white/50" />
-                        +91 98765 {43210 + Number(member.id)}
+                        +91 98765 {(() => {
+                          const parsed = Number(member.id);
+                          if (!isNaN(parsed)) return 43210 + parsed;
+                          let hash = 0;
+                          for (let i = 0; i < member.id.length; i++) {
+                            hash = (hash << 5) - hash + member.id.charCodeAt(i);
+                            hash |= 0;
+                          }
+                          return Math.abs(hash) % 90000 + 10000;
+                        })()}
                       </p>
                       <p className="flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5 text-white/50" />

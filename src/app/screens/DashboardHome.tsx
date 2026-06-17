@@ -32,7 +32,7 @@ export default function DashboardHome() {
   // Timeline progress
   const completedMilestones = milestones.filter(m => m.status === 'completed').length;
   const totalMilestones = milestones.length;
-  const progressPercent = totalMilestones > 0 ? Math.round((completedMilestones / totalMilestones) * 100) : 0;
+  const progressPercent = totalMilestones > 0 ? Math.round(milestones.reduce((sum, m) => sum + m.progress, 0) / totalMilestones) : 0;
 
   const stats = [
     {

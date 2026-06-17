@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { MapPin, Home, Layers, Building2, Sparkles, Briefcase } from 'lucide-react';
+import { MapPin, Home, Layers, Building2, Sparkles, Briefcase, ArrowLeft } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function AIEstimationForm() {
   const navigate = useNavigate();
-  const { calculateEstimate, project } = useApp();
+  const { calculateEstimate, project, projects } = useApp();
   const [formData, setFormData] = useState({
     projectName: project.projectName || 'My Dream House',
     plotSize: project.plotSize.toString(),
@@ -15,11 +15,19 @@ export default function AIEstimationForm() {
     materialQuality: project.materialQuality,
     budgetRange: project.budgetRange
   });
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const normalizedNewName = formData.projectName.trim().toLowerCase();
+    const nameExists = projects.some(p => p.projectName.toLowerCase() === normalizedNewName);
+    if (nameExists) {
+      setErrorMsg('Project is there. Try other name.');
+      return;
+    }
+    setErrorMsg('');
     calculateEstimate({
-      projectName: formData.projectName,
+      projectName: formData.projectName.trim(),
       plotSize: Number(formData.plotSize),
       floors: Number(formData.floors),
       location: formData.location,
@@ -37,12 +45,21 @@ export default function AIEstimationForm() {
   return (
     <div className="min-h-screen p-4 lg:p-8">
       <div className="max-w-3xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-8 h-8 text-[#FF6B00]" />
-            AI Cost Estimation
-          </h1>
-          <p className="text-white/70 mt-1">Get instant accurate construction cost estimates</p>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/app/dashboard')}
+            className="p-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl transition-all border border-white/10 cursor-pointer flex items-center justify-center flex-shrink-0"
+            title="Back to Dashboard"
+          >
+            <ArrowLeft className="w-5 h-5 text-white/80" />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+              <Sparkles className="w-8 h-8 text-[#FF6B00]" />
+              AI Cost Estimation
+            </h1>
+            <p className="text-white/70 mt-1">Get instant accurate construction cost estimates</p>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="glass rounded-3xl p-6 lg:p-8 space-y-6">
@@ -54,12 +71,18 @@ export default function AIEstimationForm() {
                 <input
                   type="text"
                   value={formData.projectName}
-                  onChange={(e) => setFormData({ ...formData, projectName: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, projectName: e.target.value });
+                    if (errorMsg) setErrorMsg('');
+                  }}
                   className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#FF6B00] transition-colors"
                   placeholder="e.g. Whitefield Residential Villa"
                   required
                 />
               </div>
+              {errorMsg && (
+                <p className="text-red-400 text-xs mt-1 font-medium">{errorMsg}</p>
+              )}
             </div>
             <div className="space-y-2">
               <label className="text-white/90 text-sm font-medium">Plot Size (sq.ft)</label>

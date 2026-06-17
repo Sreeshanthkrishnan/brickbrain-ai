@@ -925,11 +925,18 @@ async function startServer() {
 
             user.activeProject = nextProject;
 
-            const idx = user.projects.findIndex(p => p.projectName.toLowerCase() === nextProject.projectName.toLowerCase());
+            const oldProjectName = body.oldProjectName;
+            const matchName = (oldProjectName || nextProject.projectName).toLowerCase();
+            const idx = user.projects.findIndex(p => p.projectName.toLowerCase() === matchName);
             if (idx !== -1) {
               user.projects[idx] = nextProject;
             } else {
-              user.projects.push(nextProject);
+              const existingIdx = user.projects.findIndex(p => p.projectName.toLowerCase() === nextProject.projectName.toLowerCase());
+              if (existingIdx !== -1) {
+                user.projects[existingIdx] = nextProject;
+              } else {
+                user.projects.push(nextProject);
+              }
             }
           }
 

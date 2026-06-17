@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { Download, Share2, CheckCircle, TrendingDown } from 'lucide-react';
+import { Download, Share2, CheckCircle, TrendingDown, ArrowLeft } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useApp } from '../context/AppContext';
 
@@ -32,16 +32,20 @@ export default function CostEstimationResult() {
   return (
     <div className="min-h-screen p-4 lg:p-8">
       <div className="max-w-6xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/app/dashboard')}
+            className="p-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl transition-all border border-white/10 cursor-pointer flex items-center justify-center flex-shrink-0"
+            title="Back to Dashboard"
+          >
+            <ArrowLeft className="w-5 h-5 text-white/80" />
+          </button>
           <div>
             <h1 className="text-3xl font-bold text-white flex items-center gap-2">
               <CheckCircle className="w-8 h-8 text-green-400" />
               {project.projectName || 'Cost Estimation Result'}
             </h1>
             <p className="text-white/70 mt-1">AI-powered construction budget estimation summary</p>
-          </div>
-          <div className="flex gap-3">
-            {/* Action buttons removed */}
           </div>
         </div>
 

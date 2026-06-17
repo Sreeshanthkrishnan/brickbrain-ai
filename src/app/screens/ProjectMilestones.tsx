@@ -1,22 +1,33 @@
-import { Target, CheckCircle, Circle, Clock } from 'lucide-react';
+import { Target, CheckCircle, Circle, Clock, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 
 export default function ProjectMilestones() {
-  const { milestones, toggleMilestone } = useApp();
+  const navigate = useNavigate();
+  const { milestones, toggleMilestone, updateMilestoneProgress } = useApp();
 
   const completedCount = milestones.filter(m => m.status === 'completed').length;
   const totalCount = milestones.length;
-  const progressPercent = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+  const progressPercent = totalCount > 0 ? Math.round(milestones.reduce((sum, m) => sum + m.progress, 0) / totalCount) : 0;
 
   return (
     <div className="min-h-screen p-4 lg:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-            <Target className="w-8 h-8 text-[#FF6B00]" />
-            Project Milestones
-          </h1>
-          <p className="text-white/70 mt-1">Track key construction milestones</p>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/app/dashboard')}
+            className="p-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl transition-all border border-white/10 cursor-pointer flex items-center justify-center flex-shrink-0"
+            title="Back to Dashboard"
+          >
+            <ArrowLeft className="w-5 h-5 text-white/80" />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold text-white flex items-center gap-2">
+              <Target className="w-8 h-8 text-[#FF6B00]" />
+              Project Milestones
+            </h1>
+            <p className="text-white/70 mt-1">Track key construction milestones</p>
+          </div>
         </div>
 
         <div className="glass rounded-2xl p-6">
@@ -73,6 +84,22 @@ export default function ProjectMilestones() {
                         ? `Currently in progress, running at ${milestone.progress}% completion.`
                         : `Upcoming construction phase schedule pending.`}
                     </p>
+
+                    <div className="mt-4 space-y-2 bg-white/5 p-3 rounded-xl border border-white/5">
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span>Milestone Progress</span>
+                        <span className="font-semibold text-[#FF6B00]">{milestone.progress}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={milestone.progress}
+                        onChange={(e) => updateMilestoneProgress(milestone.id, parseInt(e.target.value))}
+                        className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#FF6B00] focus:outline-none focus:ring-1 focus:ring-[#FF6B00]"
+                      />
+                    </div>
+
                     <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/5">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
                         milestone.status === 'completed'
@@ -86,7 +113,10 @@ export default function ProjectMilestones() {
                         {milestone.status === 'pending' && 'Pending'}
                       </div>
                       <button
-                        onClick={() => toggleMilestone(milestone.id)}
+                        onClick={() => {
+                          toggleMilestone(milestone.id);
+                          navigate('/app/progress');
+                        }}
                         className="text-xs bg-white/5 hover:bg-[#FF6B00] border border-white/10 text-white hover:border-transparent py-1.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         {milestone.status === 'completed' ? 'Reopen Phase' : 'Mark Complete'}

@@ -94,6 +94,7 @@ export interface AppSettings {
   currency: 'INR' | 'USD' | 'EUR';
   language: string;
   notificationsEnabled: boolean;
+  layoutMode: 'auto' | 'desktop' | 'mobile';
 }
 
 export interface NotificationItem {
@@ -124,6 +125,7 @@ interface AppContextType {
   calculateEstimate: (inputs: Omit<ProjectEstimate, 'totalCost' | 'breakdown'>) => void;
   addExpense: (expense: Omit<Expense, 'id' | 'date'>) => void;
   toggleMilestone: (id: string) => void;
+  updateMilestoneProgress: (id: string, progress: number) => void;
   setAttendance: (id: string, status: 'Present' | 'Absent') => void;
   addWorker: (worker: Omit<Worker, 'id'>) => void;
   uploadSitePhoto: (imageSrc: string) => Promise<void>;
@@ -172,11 +174,23 @@ const DEFAULT_PROJECT: ProjectEstimate = {
 };
 
 const DEFAULT_SETTINGS: AppSettings = {
-  darkMode: true,
+  darkMode: false,
   currency: 'INR',
   language: 'English',
-  notificationsEnabled: true
+  notificationsEnabled: true,
+  layoutMode: 'auto'
 };
+
+const DEFAULT_MILESTONES: Milestone[] = [
+  { id: '1', name: 'Site Clearing & Excavation', status: 'completed', progress: 100, date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) },
+  { id: '2', name: 'Foundation & Footing', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '3', name: 'Pillar & Plinth Beam Construction', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '4', name: 'Brickwork & Wall Masonry', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '5', name: 'Plastering & External Finishing', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '6', name: 'Electrical & Plumbing Fitting', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '7', name: 'Flooring & Tiling', status: 'pending', progress: 0, date: 'Pending' },
+  { id: '8', name: 'Painting & Final Handover', status: 'pending', progress: 0, date: 'Pending' }
+];
 
 // Fetch wrapper that always includes credentials (cookies)
 function apiFetch(url: string, options: RequestInit = {}): Promise<Response> {
@@ -206,7 +220,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [project, setProject] = useState<ProjectEstimate>(DEFAULT_PROJECT);
   const [requiredList, setRequiredList] = useState<RequiredMaterial[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [milestones, setMilestones] = useState<Milestone[]>([]);
+  const [milestones, setMilestones] = useState<Milestone[]>(DEFAULT_MILESTONES);
   const [workers, setWorkers] = useState<Worker[]>([]);
   const [detections, setDetections] = useState<Defect[]>([]);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
@@ -220,7 +234,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     if (data.activeProject) setProject(data.activeProject);
     if (data.cart) setRequiredList(data.cart);
     if (data.expenses) setExpenses(data.expenses);
-    if (data.milestones) setMilestones(data.milestones);
+    
+    if (data.milestones && data.milestones.length > 0) {
+      if (data.milestones.length < DEFAULT_MILESTONES.length) {
+        const merged = DEFAULT_MILESTONES.map(dm => {
+          const existing = data.milestones.find((m: any) => m.id === dm.id);
+          return existing ? existing : dm;
+        });
+        setMilestones(merged);
+      } else {
+        setMilestones(data.milestones);
+      }
+    } else {
+      setMilestones(DEFAULT_MILESTONES);
+    }
+
     if (data.workers) setWorkers(data.workers);
     if (data.detections) setDetections(data.detections);
     if (data.chatMessages) setChatMessages(data.chatMessages);
@@ -236,7 +264,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setProject(DEFAULT_PROJECT);
     setRequiredList([]);
     setExpenses([]);
-    setMilestones([]);
+    setMilestones(DEFAULT_MILESTONES);
     setWorkers([]);
     setDetections([]);
     setChatMessages([]);
@@ -395,6 +423,44 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return m;
     });
     setMilestones(next);
+
+    const allCompleted = next.every(m => m.status === 'completed');
+    const newStatus = allCompleted ? 'Completed' : 'In Progress';
+    if (project.status !== newStatus) {
+      updateProject({ status: newStatus });
+    }
+
+    syncStateWithServer({ milestones: next });
+  };
+
+  const updateMilestoneProgress = (id: string, progress: number) => {
+    const next = milestones.map(m => {
+      if (m.id === id) {
+        let status: 'completed' | 'in-progress' | 'pending' = 'in-progress';
+        if (progress >= 100) {
+          status = 'completed';
+          progress = 100;
+        } else if (progress <= 0) {
+          status = 'pending';
+          progress = 0;
+        }
+        return {
+          ...m,
+          status,
+          progress,
+          date: status === 'completed' ? new Date().toISOString().split('T')[0] : m.date === 'Pending' ? new Date().toISOString().split('T')[0] : m.date
+        };
+      }
+      return m;
+    });
+    setMilestones(next);
+
+    const allCompleted = next.every(m => m.status === 'completed');
+    const newStatus = allCompleted ? 'Completed' : 'In Progress';
+    if (project.status !== newStatus) {
+      updateProject({ status: newStatus });
+    }
+
     syncStateWithServer({ milestones: next });
   };
 
@@ -535,11 +601,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const updateProject = async (data: Partial<ProjectEstimate>) => {
+    const oldName = project.projectName;
     const nextProj = { ...project, ...data };
     
-    const nextProjectsList = projects.some(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase())
+    const nextProjectsList = projects.some(p => p.projectName.toLowerCase() === oldName.toLowerCase())
+      ? projects.map(p => p.projectName.toLowerCase() === oldName.toLowerCase() ? nextProj : p)
+      : projects.some(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase())
       ? projects.map(p => p.projectName.toLowerCase() === nextProj.projectName.toLowerCase() ? nextProj : p)
-      : projects;
+      : [nextProj, ...projects];
 
     setProject(nextProj);
     setProjects(nextProjectsList);
@@ -547,7 +616,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       await apiFetch(`${API_URL}/api/project`, {
         method: 'POST',
-        body: JSON.stringify({ project: nextProj })
+        body: JSON.stringify({ 
+          project: nextProj,
+          oldProjectName: oldName
+        })
       });
     } catch (e) {
       console.warn("Backend update failed.");
@@ -834,6 +906,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         calculateEstimate,
         addExpense,
         toggleMilestone,
+        updateMilestoneProgress,
         setAttendance,
         addWorker,
         uploadSitePhoto,
