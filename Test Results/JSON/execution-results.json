@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-22T16:14:02.903Z",
+  "timestamp": "2026-07-22T16:30:24.895Z",
   "project": "BRICK BRAIN AI - Android App",
   "device": "emulator-5554",
   "metrics": {
@@ -10,7 +10,7 @@
     "skipped": 1,
     "blocked": 0,
     "passRate": "99.22",
-    "duration": "0.33"
+    "duration": "0.31"
   },
   "testCases": [
     {
@@ -25,7 +25,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.059s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -40,7 +40,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.153s",
+      "executionTime": "0.143s",
       "failureReason": "N/A"
     },
     {
@@ -55,7 +55,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.108s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -70,7 +70,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.140s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -85,7 +85,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.118s",
       "failureReason": "N/A"
     },
     {
@@ -100,7 +100,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.069s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -115,7 +115,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.068s",
+      "executionTime": "0.070s",
       "failureReason": "N/A"
     },
     {
@@ -130,7 +130,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.057s",
+      "executionTime": "0.069s",
       "failureReason": "N/A"
     },
     {
@@ -145,7 +145,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.094s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -160,7 +160,7 @@
       "actualResult": "Assertion failure: Expected view element state match but encountered: OTP validation mismatch",
       "status": "FAILED",
       "passFail": "FAIL",
-      "executionTime": "0.121s",
+      "executionTime": "0.157s",
       "failureReason": "OTP validation mismatch"
     },
     {
@@ -175,7 +175,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.093s",
       "failureReason": "N/A"
     },
     {
@@ -190,7 +190,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -205,7 +205,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.059s",
       "failureReason": "N/A"
     },
     {
@@ -220,7 +220,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -235,7 +235,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.060s",
+      "executionTime": "0.097s",
       "failureReason": "N/A"
     },
     {
@@ -250,7 +250,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -265,7 +265,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.060s",
+      "executionTime": "0.087s",
       "failureReason": "N/A"
     },
     {
@@ -280,7 +280,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.057s",
+      "executionTime": "0.146s",
       "failureReason": "N/A"
     },
     {
@@ -295,7 +295,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.141s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -310,7 +310,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.119s",
+      "executionTime": "0.043s",
       "failureReason": "N/A"
     },
     {
@@ -325,7 +325,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.109s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -340,7 +340,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -355,7 +355,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.083s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -370,7 +370,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -385,7 +385,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.149s",
       "failureReason": "N/A"
     },
     {
@@ -400,7 +400,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.095s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -430,7 +430,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.073s",
       "failureReason": "N/A"
     },
     {
@@ -445,7 +445,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.160s",
+      "executionTime": "0.106s",
       "failureReason": "N/A"
     },
     {
@@ -460,7 +460,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.090s",
+      "executionTime": "0.066s",
       "failureReason": "N/A"
     },
     {
@@ -475,7 +475,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.151s",
       "failureReason": "N/A"
     },
     {
@@ -490,7 +490,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.088s",
       "failureReason": "N/A"
     },
     {
@@ -505,7 +505,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -520,7 +520,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.141s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -535,7 +535,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.102s",
       "failureReason": "N/A"
     },
     {
@@ -550,7 +550,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.153s",
       "failureReason": "N/A"
     },
     {
@@ -565,7 +565,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.133s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -580,7 +580,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.153s",
+      "executionTime": "0.134s",
       "failureReason": "N/A"
     },
     {
@@ -595,7 +595,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.061s",
+      "executionTime": "0.084s",
       "failureReason": "N/A"
     },
     {
@@ -610,7 +610,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.120s",
+      "executionTime": "0.099s",
       "failureReason": "N/A"
     },
     {
@@ -625,7 +625,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.095s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -640,7 +640,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.075s",
       "failureReason": "N/A"
     },
     {
@@ -655,7 +655,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.139s",
+      "executionTime": "0.157s",
       "failureReason": "N/A"
     },
     {
@@ -670,7 +670,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.146s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -685,7 +685,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.145s",
       "failureReason": "N/A"
     },
     {
@@ -700,7 +700,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.089s",
+      "executionTime": "0.149s",
       "failureReason": "N/A"
     },
     {
@@ -715,7 +715,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.089s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -730,7 +730,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -745,7 +745,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -760,7 +760,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.131s",
       "failureReason": "N/A"
     },
     {
@@ -775,7 +775,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.092s",
       "failureReason": "N/A"
     },
     {
@@ -790,7 +790,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.078s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -805,7 +805,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.061s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -820,7 +820,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.139s",
+      "executionTime": "0.152s",
       "failureReason": "N/A"
     },
     {
@@ -835,7 +835,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.060s",
+      "executionTime": "0.062s",
       "failureReason": "N/A"
     },
     {
@@ -850,7 +850,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.142s",
       "failureReason": "N/A"
     },
     {
@@ -865,7 +865,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.092s",
+      "executionTime": "0.130s",
       "failureReason": "N/A"
     },
     {
@@ -880,7 +880,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.041s",
       "failureReason": "N/A"
     },
     {
@@ -895,7 +895,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.157s",
+      "executionTime": "0.129s",
       "failureReason": "N/A"
     },
     {
@@ -910,7 +910,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.133s",
       "failureReason": "N/A"
     },
     {
@@ -925,7 +925,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.115s",
+      "executionTime": "0.063s",
       "failureReason": "N/A"
     },
     {
@@ -940,7 +940,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.118s",
+      "executionTime": "0.122s",
       "failureReason": "N/A"
     },
     {
@@ -955,7 +955,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.089s",
+      "executionTime": "0.094s",
       "failureReason": "N/A"
     },
     {
@@ -970,7 +970,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -985,7 +985,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.134s",
+      "executionTime": "0.046s",
       "failureReason": "N/A"
     },
     {
@@ -1000,7 +1000,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.045s",
+      "executionTime": "0.062s",
       "failureReason": "N/A"
     },
     {
@@ -1015,7 +1015,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.052s",
+      "executionTime": "0.155s",
       "failureReason": "N/A"
     },
     {
@@ -1030,7 +1030,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -1045,7 +1045,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.083s",
       "failureReason": "N/A"
     },
     {
@@ -1060,7 +1060,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.121s",
       "failureReason": "N/A"
     },
     {
@@ -1075,7 +1075,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.073s",
       "failureReason": "N/A"
     },
     {
@@ -1090,7 +1090,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.116s",
+      "executionTime": "0.049s",
       "failureReason": "N/A"
     },
     {
@@ -1105,7 +1105,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.071s",
+      "executionTime": "0.098s",
       "failureReason": "N/A"
     },
     {
@@ -1120,7 +1120,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -1135,7 +1135,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -1150,7 +1150,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.114s",
+      "executionTime": "0.112s",
       "failureReason": "N/A"
     },
     {
@@ -1165,7 +1165,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.121s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -1180,7 +1180,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.155s",
       "failureReason": "N/A"
     },
     {
@@ -1195,7 +1195,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.083s",
       "failureReason": "N/A"
     },
     {
@@ -1210,7 +1210,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -1225,7 +1225,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.108s",
+      "executionTime": "0.052s",
       "failureReason": "N/A"
     },
     {
@@ -1240,7 +1240,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -1255,7 +1255,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.086s",
       "failureReason": "N/A"
     },
     {
@@ -1270,7 +1270,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.121s",
+      "executionTime": "0.093s",
       "failureReason": "N/A"
     },
     {
@@ -1285,7 +1285,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -1300,7 +1300,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.055s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -1315,7 +1315,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.148s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -1330,7 +1330,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.088s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -1345,7 +1345,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -1360,7 +1360,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.156s",
+      "executionTime": "0.068s",
       "failureReason": "N/A"
     },
     {
@@ -1375,7 +1375,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.127s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     },
     {
@@ -1390,7 +1390,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.139s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -1405,7 +1405,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.160s",
+      "executionTime": "0.048s",
       "failureReason": "N/A"
     },
     {
@@ -1420,7 +1420,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.142s",
       "failureReason": "N/A"
     },
     {
@@ -1435,7 +1435,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.145s",
+      "executionTime": "0.087s",
       "failureReason": "N/A"
     },
     {
@@ -1450,7 +1450,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.091s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -1465,7 +1465,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.071s",
+      "executionTime": "0.104s",
       "failureReason": "N/A"
     },
     {
@@ -1480,7 +1480,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.089s",
       "failureReason": "N/A"
     },
     {
@@ -1495,7 +1495,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.144s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -1510,7 +1510,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.065s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -1525,7 +1525,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -1540,7 +1540,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.148s",
+      "executionTime": "0.054s",
       "failureReason": "N/A"
     },
     {
@@ -1555,7 +1555,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.114s",
+      "executionTime": "0.120s",
       "failureReason": "N/A"
     },
     {
@@ -1570,7 +1570,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -1585,7 +1585,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.102s",
       "failureReason": "N/A"
     },
     {
@@ -1600,7 +1600,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.086s",
       "failureReason": "N/A"
     },
     {
@@ -1615,7 +1615,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -1630,7 +1630,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -1645,7 +1645,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.062s",
       "failureReason": "N/A"
     },
     {
@@ -1660,7 +1660,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.152s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -1675,7 +1675,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.121s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -1690,7 +1690,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.086s",
+      "executionTime": "0.097s",
       "failureReason": "N/A"
     },
     {
@@ -1705,7 +1705,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.108s",
       "failureReason": "N/A"
     },
     {
@@ -1720,7 +1720,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.111s",
       "failureReason": "N/A"
     },
     {
@@ -1735,7 +1735,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.086s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -1750,7 +1750,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.136s",
       "failureReason": "N/A"
     },
     {
@@ -1765,7 +1765,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.149s",
       "failureReason": "N/A"
     },
     {
@@ -1780,7 +1780,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.108s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -1795,7 +1795,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.115s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -1810,7 +1810,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -1825,7 +1825,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.114s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -1840,7 +1840,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.093s",
+      "executionTime": "0.121s",
       "failureReason": "N/A"
     },
     {
@@ -1855,7 +1855,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -1870,7 +1870,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.069s",
       "failureReason": "N/A"
     },
     {
@@ -1885,7 +1885,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.115s",
+      "executionTime": "0.040s",
       "failureReason": "N/A"
     },
     {
@@ -1900,7 +1900,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     },
     {
@@ -1915,7 +1915,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.136s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -1930,7 +1930,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.157s",
+      "executionTime": "0.092s",
       "failureReason": "N/A"
     },
     {
@@ -1945,7 +1945,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.135s",
       "failureReason": "N/A"
     },
     {
@@ -1960,7 +1960,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.121s",
+      "executionTime": "0.090s",
       "failureReason": "N/A"
     },
     {
@@ -1990,7 +1990,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.149s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -2005,7 +2005,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.093s",
+      "executionTime": "0.114s",
       "failureReason": "N/A"
     },
     {
@@ -2020,7 +2020,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -2035,7 +2035,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -2050,7 +2050,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -2065,7 +2065,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.050s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -2080,7 +2080,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.153s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -2095,7 +2095,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.054s",
+      "executionTime": "0.052s",
       "failureReason": "N/A"
     },
     {
@@ -2110,7 +2110,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.153s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -2125,7 +2125,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.097s",
+      "executionTime": "0.063s",
       "failureReason": "N/A"
     },
     {
@@ -2140,7 +2140,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.157s",
       "failureReason": "N/A"
     },
     {
@@ -2155,7 +2155,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.099s",
+      "executionTime": "0.123s",
       "failureReason": "N/A"
     },
     {
@@ -2170,7 +2170,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.085s",
+      "executionTime": "0.126s",
       "failureReason": "N/A"
     },
     {
@@ -2185,7 +2185,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.114s",
+      "executionTime": "0.089s",
       "failureReason": "N/A"
     },
     {
@@ -2200,7 +2200,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.123s",
       "failureReason": "N/A"
     },
     {
@@ -2215,7 +2215,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -2230,7 +2230,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -2245,7 +2245,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.111s",
+      "executionTime": "0.152s",
       "failureReason": "N/A"
     },
     {
@@ -2260,7 +2260,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.133s",
+      "executionTime": "0.130s",
       "failureReason": "N/A"
     },
     {
@@ -2275,7 +2275,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.093s",
+      "executionTime": "0.142s",
       "failureReason": "N/A"
     },
     {
@@ -2290,7 +2290,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.101s",
+      "executionTime": "0.102s",
       "failureReason": "N/A"
     },
     {
@@ -2305,7 +2305,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.159s",
       "failureReason": "N/A"
     },
     {
@@ -2320,7 +2320,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.048s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -2335,7 +2335,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.108s",
       "failureReason": "N/A"
     },
     {
@@ -2350,7 +2350,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -2365,7 +2365,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -2380,7 +2380,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.103s",
+      "executionTime": "0.134s",
       "failureReason": "N/A"
     },
     {
@@ -2395,7 +2395,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.132s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -2410,7 +2410,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.148s",
+      "executionTime": "0.113s",
       "failureReason": "N/A"
     },
     {
@@ -2425,7 +2425,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.099s",
       "failureReason": "N/A"
     },
     {
@@ -2440,7 +2440,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.104s",
+      "executionTime": "0.119s",
       "failureReason": "N/A"
     },
     {
@@ -2455,7 +2455,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -2470,7 +2470,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -2485,7 +2485,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.085s",
       "failureReason": "N/A"
     },
     {
@@ -2500,7 +2500,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.129s",
       "failureReason": "N/A"
     },
     {
@@ -2515,7 +2515,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.126s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -2530,7 +2530,7 @@
       "actualResult": "Assertion failure: Expected view element state match but encountered: Validation message missing",
       "status": "FAILED",
       "passFail": "FAIL",
-      "executionTime": "0.155s",
+      "executionTime": "0.076s",
       "failureReason": "Validation message missing"
     },
     {
@@ -2545,7 +2545,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.048s",
       "failureReason": "N/A"
     },
     {
@@ -2560,7 +2560,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.134s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -2575,7 +2575,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.124s",
       "failureReason": "N/A"
     },
     {
@@ -2590,7 +2590,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.152s",
       "failureReason": "N/A"
     },
     {
@@ -2605,7 +2605,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.137s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -2620,7 +2620,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.146s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -2635,7 +2635,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.146s",
       "failureReason": "N/A"
     },
     {
@@ -2650,7 +2650,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -2665,7 +2665,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.122s",
       "failureReason": "N/A"
     },
     {
@@ -2680,7 +2680,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.097s",
+      "executionTime": "0.159s",
       "failureReason": "N/A"
     },
     {
@@ -2695,7 +2695,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -2710,7 +2710,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.042s",
+      "executionTime": "0.113s",
       "failureReason": "N/A"
     },
     {
@@ -2725,7 +2725,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.111s",
       "failureReason": "N/A"
     },
     {
@@ -2740,7 +2740,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.135s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -2755,7 +2755,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -2770,7 +2770,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.057s",
+      "executionTime": "0.090s",
       "failureReason": "N/A"
     },
     {
@@ -2785,7 +2785,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.158s",
       "failureReason": "N/A"
     },
     {
@@ -2800,7 +2800,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.131s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -2815,7 +2815,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.159s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -2830,7 +2830,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.092s",
       "failureReason": "N/A"
     },
     {
@@ -2845,7 +2845,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -2860,7 +2860,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.149s",
+      "executionTime": "0.135s",
       "failureReason": "N/A"
     },
     {
@@ -2875,7 +2875,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.147s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -2890,7 +2890,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -2905,7 +2905,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.074s",
+      "executionTime": "0.051s",
       "failureReason": "N/A"
     },
     {
@@ -2920,7 +2920,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.103s",
+      "executionTime": "0.156s",
       "failureReason": "N/A"
     },
     {
@@ -2935,7 +2935,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.147s",
+      "executionTime": "0.158s",
       "failureReason": "N/A"
     },
     {
@@ -2950,7 +2950,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.136s",
+      "executionTime": "0.143s",
       "failureReason": "N/A"
     },
     {
@@ -2965,7 +2965,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.120s",
       "failureReason": "N/A"
     },
     {
@@ -2980,7 +2980,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.085s",
+      "executionTime": "0.048s",
       "failureReason": "N/A"
     },
     {
@@ -2995,7 +2995,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.123s",
+      "executionTime": "0.102s",
       "failureReason": "N/A"
     },
     {
@@ -3010,7 +3010,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.122s",
+      "executionTime": "0.106s",
       "failureReason": "N/A"
     },
     {
@@ -3025,7 +3025,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.058s",
+      "executionTime": "0.077s",
       "failureReason": "N/A"
     },
     {
@@ -3040,7 +3040,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.065s",
+      "executionTime": "0.107s",
       "failureReason": "N/A"
     },
     {
@@ -3055,7 +3055,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -3070,7 +3070,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.055s",
+      "executionTime": "0.126s",
       "failureReason": "N/A"
     },
     {
@@ -3085,7 +3085,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.150s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -3100,7 +3100,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.042s",
+      "executionTime": "0.155s",
       "failureReason": "N/A"
     },
     {
@@ -3115,7 +3115,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.112s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -3130,7 +3130,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.090s",
+      "executionTime": "0.051s",
       "failureReason": "N/A"
     },
     {
@@ -3145,7 +3145,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.158s",
+      "executionTime": "0.134s",
       "failureReason": "N/A"
     },
     {
@@ -3160,7 +3160,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.122s",
+      "executionTime": "0.144s",
       "failureReason": "N/A"
     },
     {
@@ -3175,7 +3175,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.077s",
       "failureReason": "N/A"
     },
     {
@@ -3190,7 +3190,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.149s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -3205,7 +3205,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.111s",
+      "executionTime": "0.145s",
       "failureReason": "N/A"
     },
     {
@@ -3220,7 +3220,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.052s",
+      "executionTime": "0.108s",
       "failureReason": "N/A"
     },
     {
@@ -3235,7 +3235,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.086s",
       "failureReason": "N/A"
     },
     {
@@ -3250,7 +3250,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.128s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -3265,7 +3265,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.149s",
       "failureReason": "N/A"
     },
     {
@@ -3280,7 +3280,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -3295,7 +3295,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.127s",
+      "executionTime": "0.088s",
       "failureReason": "N/A"
     },
     {
@@ -3310,7 +3310,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.102s",
+      "executionTime": "0.050s",
       "failureReason": "N/A"
     },
     {
@@ -3325,7 +3325,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.089s",
       "failureReason": "N/A"
     },
     {
@@ -3340,7 +3340,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.132s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -3355,7 +3355,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.135s",
+      "executionTime": "0.068s",
       "failureReason": "N/A"
     },
     {
@@ -3370,7 +3370,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -3385,7 +3385,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.112s",
       "failureReason": "N/A"
     },
     {
@@ -3400,7 +3400,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.071s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -3415,7 +3415,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.151s",
       "failureReason": "N/A"
     },
     {
@@ -3430,7 +3430,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.133s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -3445,7 +3445,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.123s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -3460,7 +3460,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -3475,7 +3475,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.051s",
+      "executionTime": "0.107s",
       "failureReason": "N/A"
     },
     {
@@ -3490,7 +3490,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -3505,7 +3505,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.079s",
+      "executionTime": "0.101s",
       "failureReason": "N/A"
     },
     {
@@ -3520,7 +3520,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.148s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -3535,7 +3535,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.140s",
+      "executionTime": "0.079s",
       "failureReason": "N/A"
     },
     {
@@ -3550,7 +3550,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.104s",
+      "executionTime": "0.096s",
       "failureReason": "N/A"
     },
     {
@@ -3565,7 +3565,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.145s",
+      "executionTime": "0.135s",
       "failureReason": "N/A"
     },
     {
@@ -3580,7 +3580,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.106s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -3595,7 +3595,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.126s",
+      "executionTime": "0.146s",
       "failureReason": "N/A"
     },
     {
@@ -3610,7 +3610,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.042s",
       "failureReason": "N/A"
     },
     {
@@ -3625,7 +3625,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.063s",
       "failureReason": "N/A"
     },
     {
@@ -3640,7 +3640,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.054s",
+      "executionTime": "0.152s",
       "failureReason": "N/A"
     },
     {
@@ -3655,7 +3655,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.058s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -3670,7 +3670,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.094s",
+      "executionTime": "0.040s",
       "failureReason": "N/A"
     },
     {
@@ -3685,7 +3685,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -3700,7 +3700,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.092s",
       "failureReason": "N/A"
     },
     {
@@ -3715,7 +3715,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.143s",
       "failureReason": "N/A"
     },
     {
@@ -3730,7 +3730,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.118s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -3745,7 +3745,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.075s",
       "failureReason": "N/A"
     },
     {
@@ -3760,7 +3760,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.041s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     },
     {
@@ -3775,7 +3775,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -3790,7 +3790,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.072s",
       "failureReason": "N/A"
     },
     {
@@ -3805,7 +3805,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.114s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -3820,7 +3820,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -3835,7 +3835,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.108s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -3850,7 +3850,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -3865,7 +3865,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -3880,7 +3880,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.123s",
+      "executionTime": "0.096s",
       "failureReason": "N/A"
     },
     {
@@ -3895,7 +3895,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.097s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -3925,7 +3925,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.051s",
       "failureReason": "N/A"
     },
     {
@@ -3940,7 +3940,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -3955,7 +3955,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.086s",
+      "executionTime": "0.041s",
       "failureReason": "N/A"
     },
     {
@@ -3970,7 +3970,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.111s",
+      "executionTime": "0.045s",
       "failureReason": "N/A"
     },
     {
@@ -3985,7 +3985,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.075s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -4000,7 +4000,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.080s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -4015,7 +4015,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.076s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -4030,7 +4030,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.079s",
       "failureReason": "N/A"
     },
     {
@@ -4045,7 +4045,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -4060,7 +4060,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.158s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -4075,7 +4075,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.096s",
       "failureReason": "N/A"
     },
     {
@@ -4090,7 +4090,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.059s",
+      "executionTime": "0.040s",
       "failureReason": "N/A"
     },
     {
@@ -4120,7 +4120,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.107s",
+      "executionTime": "0.122s",
       "failureReason": "N/A"
     },
     {
@@ -4135,7 +4135,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.107s",
+      "executionTime": "0.129s",
       "failureReason": "N/A"
     },
     {
@@ -4150,7 +4150,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -4165,7 +4165,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.075s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -4180,7 +4180,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.149s",
+      "executionTime": "0.101s",
       "failureReason": "N/A"
     },
     {
@@ -4195,7 +4195,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.065s",
+      "executionTime": "0.049s",
       "failureReason": "N/A"
     },
     {
@@ -4210,7 +4210,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.076s",
+      "executionTime": "0.091s",
       "failureReason": "N/A"
     },
     {
@@ -4225,7 +4225,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.156s",
       "failureReason": "N/A"
     },
     {
@@ -4240,7 +4240,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.099s",
+      "executionTime": "0.108s",
       "failureReason": "N/A"
     },
     {
@@ -4255,7 +4255,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.107s",
       "failureReason": "N/A"
     },
     {
@@ -4270,7 +4270,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -4285,7 +4285,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.095s",
+      "executionTime": "0.046s",
       "failureReason": "N/A"
     },
     {
@@ -4300,7 +4300,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.133s",
+      "executionTime": "0.094s",
       "failureReason": "N/A"
     },
     {
@@ -4315,7 +4315,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.087s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -4330,7 +4330,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.154s",
       "failureReason": "N/A"
     },
     {
@@ -4345,7 +4345,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.111s",
+      "executionTime": "0.084s",
       "failureReason": "N/A"
     },
     {
@@ -4360,7 +4360,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.070s",
       "failureReason": "N/A"
     },
     {
@@ -4375,7 +4375,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.070s",
       "failureReason": "N/A"
     },
     {
@@ -4390,7 +4390,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.051s",
       "failureReason": "N/A"
     },
     {
@@ -4405,7 +4405,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.060s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -4420,7 +4420,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.052s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -4435,7 +4435,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.111s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -4450,7 +4450,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.104s",
+      "executionTime": "0.066s",
       "failureReason": "N/A"
     },
     {
@@ -4465,7 +4465,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.055s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -4480,7 +4480,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.135s",
       "failureReason": "N/A"
     },
     {
@@ -4495,7 +4495,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.140s",
       "failureReason": "N/A"
     },
     {
@@ -4510,7 +4510,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.106s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -4525,7 +4525,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.058s",
+      "executionTime": "0.052s",
       "failureReason": "N/A"
     },
     {
@@ -4540,7 +4540,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.043s",
       "failureReason": "N/A"
     },
     {
@@ -4555,7 +4555,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.091s",
+      "executionTime": "0.121s",
       "failureReason": "N/A"
     },
     {
@@ -4570,7 +4570,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.084s",
+      "executionTime": "0.090s",
       "failureReason": "N/A"
     },
     {
@@ -4585,7 +4585,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.116s",
       "failureReason": "N/A"
     },
     {
@@ -4600,7 +4600,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.137s",
+      "executionTime": "0.084s",
       "failureReason": "N/A"
     },
     {
@@ -4615,7 +4615,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.107s",
       "failureReason": "N/A"
     },
     {
@@ -4630,7 +4630,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.040s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -4645,7 +4645,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.146s",
+      "executionTime": "0.110s",
       "failureReason": "N/A"
     },
     {
@@ -4660,7 +4660,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.087s",
+      "executionTime": "0.158s",
       "failureReason": "N/A"
     },
     {
@@ -4675,7 +4675,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.068s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     },
     {
@@ -4690,7 +4690,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.049s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -4705,7 +4705,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.158s",
+      "executionTime": "0.114s",
       "failureReason": "N/A"
     },
     {
@@ -4720,7 +4720,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.126s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -4735,7 +4735,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.085s",
       "failureReason": "N/A"
     },
     {
@@ -4750,7 +4750,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.100s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -4765,7 +4765,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.112s",
       "failureReason": "N/A"
     },
     {
@@ -4780,7 +4780,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.048s",
+      "executionTime": "0.146s",
       "failureReason": "N/A"
     },
     {
@@ -4795,7 +4795,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.076s",
+      "executionTime": "0.111s",
       "failureReason": "N/A"
     },
     {
@@ -4810,7 +4810,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.158s",
+      "executionTime": "0.101s",
       "failureReason": "N/A"
     },
     {
@@ -4825,7 +4825,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.042s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -4840,7 +4840,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.121s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -4855,7 +4855,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.046s",
+      "executionTime": "0.055s",
       "failureReason": "N/A"
     },
     {
@@ -4870,7 +4870,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -4885,7 +4885,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.071s",
       "failureReason": "N/A"
     },
     {
@@ -4900,7 +4900,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -4915,7 +4915,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.087s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -4930,7 +4930,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.082s",
+      "executionTime": "0.090s",
       "failureReason": "N/A"
     },
     {
@@ -4945,7 +4945,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.053s",
+      "executionTime": "0.113s",
       "failureReason": "N/A"
     },
     {
@@ -4960,7 +4960,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.097s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -4975,7 +4975,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.090s",
+      "executionTime": "0.105s",
       "failureReason": "N/A"
     },
     {
@@ -4990,7 +4990,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.154s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -5005,7 +5005,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.100s",
+      "executionTime": "0.046s",
       "failureReason": "N/A"
     },
     {
@@ -5020,7 +5020,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -5035,7 +5035,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.076s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -5050,7 +5050,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.132s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -5065,7 +5065,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.131s",
       "failureReason": "N/A"
     },
     {
@@ -5080,7 +5080,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.140s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -5095,7 +5095,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -5110,7 +5110,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.042s",
+      "executionTime": "0.105s",
       "failureReason": "N/A"
     },
     {
@@ -5125,7 +5125,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -5140,7 +5140,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.122s",
+      "executionTime": "0.048s",
       "failureReason": "N/A"
     },
     {
@@ -5155,7 +5155,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.055s",
+      "executionTime": "0.068s",
       "failureReason": "N/A"
     },
     {
@@ -5170,7 +5170,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.065s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -5185,7 +5185,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.076s",
+      "executionTime": "0.073s",
       "failureReason": "N/A"
     },
     {
@@ -5200,7 +5200,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.134s",
+      "executionTime": "0.119s",
       "failureReason": "N/A"
     },
     {
@@ -5215,7 +5215,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.131s",
       "failureReason": "N/A"
     },
     {
@@ -5230,7 +5230,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.071s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -5245,7 +5245,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.044s",
+      "executionTime": "0.108s",
       "failureReason": "N/A"
     },
     {
@@ -5260,7 +5260,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.129s",
+      "executionTime": "0.120s",
       "failureReason": "N/A"
     },
     {
@@ -5275,7 +5275,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.083s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -5290,7 +5290,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.099s",
+      "executionTime": "0.119s",
       "failureReason": "N/A"
     },
     {
@@ -5305,7 +5305,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.058s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -5320,7 +5320,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.077s",
+      "executionTime": "0.072s",
       "failureReason": "N/A"
     },
     {
@@ -5335,7 +5335,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.085s",
       "failureReason": "N/A"
     },
     {
@@ -5350,7 +5350,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.109s",
+      "executionTime": "0.145s",
       "failureReason": "N/A"
     },
     {
@@ -5365,7 +5365,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.148s",
+      "executionTime": "0.124s",
       "failureReason": "N/A"
     },
     {
@@ -5380,7 +5380,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.040s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -5395,7 +5395,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.119s",
+      "executionTime": "0.090s",
       "failureReason": "N/A"
     },
     {
@@ -5410,7 +5410,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.040s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -5425,7 +5425,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.134s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -5440,7 +5440,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.106s",
+      "executionTime": "0.098s",
       "failureReason": "N/A"
     },
     {
@@ -5455,7 +5455,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.091s",
+      "executionTime": "0.153s",
       "failureReason": "N/A"
     },
     {
@@ -5470,7 +5470,7 @@
       "actualResult": "Test skipped due to conditional feature configuration.",
       "status": "SKIPPED",
       "passFail": "SKIP",
-      "executionTime": "0.105s",
+      "executionTime": "0.051s",
       "failureReason": "Feature Flag Disabled in Current Build"
     },
     {
@@ -5485,7 +5485,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.131s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -5500,7 +5500,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.098s",
       "failureReason": "N/A"
     },
     {
@@ -5515,7 +5515,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.146s",
+      "executionTime": "0.134s",
       "failureReason": "N/A"
     },
     {
@@ -5530,7 +5530,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.154s",
+      "executionTime": "0.065s",
       "failureReason": "N/A"
     },
     {
@@ -5545,7 +5545,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.083s",
+      "executionTime": "0.050s",
       "failureReason": "N/A"
     },
     {
@@ -5560,7 +5560,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.135s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -5575,7 +5575,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.050s",
+      "executionTime": "0.097s",
       "failureReason": "N/A"
     },
     {
@@ -5590,7 +5590,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.135s",
+      "executionTime": "0.091s",
       "failureReason": "N/A"
     },
     {
@@ -5605,7 +5605,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.128s",
+      "executionTime": "0.130s",
       "failureReason": "N/A"
     },
     {
@@ -5620,7 +5620,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.141s",
+      "executionTime": "0.068s",
       "failureReason": "N/A"
     },
     {
@@ -5635,7 +5635,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.110s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -5650,7 +5650,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -5665,7 +5665,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.123s",
+      "executionTime": "0.104s",
       "failureReason": "N/A"
     },
     {
@@ -5680,7 +5680,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.132s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -5695,7 +5695,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.064s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -5710,7 +5710,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.072s",
+      "executionTime": "0.120s",
       "failureReason": "N/A"
     },
     {
@@ -5725,7 +5725,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.157s",
+      "executionTime": "0.048s",
       "failureReason": "N/A"
     },
     {
@@ -5740,7 +5740,7 @@
       "actualResult": "Assertion failure: Expected view element state match but encountered: Application crash during large file payload",
       "status": "FAILED",
       "passFail": "FAIL",
-      "executionTime": "0.064s",
+      "executionTime": "0.047s",
       "failureReason": "Application crash during large file payload"
     },
     {
@@ -5755,7 +5755,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.160s",
+      "executionTime": "0.123s",
       "failureReason": "N/A"
     },
     {
@@ -5770,7 +5770,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.128s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     },
     {
@@ -5785,7 +5785,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.066s",
+      "executionTime": "0.111s",
       "failureReason": "N/A"
     },
     {
@@ -5800,7 +5800,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -5815,7 +5815,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.116s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -5830,7 +5830,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.155s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -5845,7 +5845,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -5860,7 +5860,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.084s",
       "failureReason": "N/A"
     },
     {
@@ -5875,7 +5875,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.117s",
+      "executionTime": "0.131s",
       "failureReason": "N/A"
     },
     {
@@ -5890,7 +5890,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -5905,7 +5905,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.079s",
+      "executionTime": "0.070s",
       "failureReason": "N/A"
     },
     {
@@ -5920,7 +5920,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.160s",
+      "executionTime": "0.104s",
       "failureReason": "N/A"
     },
     {
@@ -5935,7 +5935,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.075s",
+      "executionTime": "0.120s",
       "failureReason": "N/A"
     },
     {
@@ -5950,7 +5950,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.079s",
       "failureReason": "N/A"
     },
     {
@@ -5965,7 +5965,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.133s",
       "failureReason": "N/A"
     },
     {
@@ -5980,7 +5980,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.113s",
       "failureReason": "N/A"
     },
     {
@@ -5995,7 +5995,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.050s",
+      "executionTime": "0.067s",
       "failureReason": "N/A"
     },
     {
@@ -6010,7 +6010,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.119s",
       "failureReason": "N/A"
     },
     {
@@ -6025,7 +6025,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.120s",
+      "executionTime": "0.097s",
       "failureReason": "N/A"
     },
     {
@@ -6040,7 +6040,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.109s",
+      "executionTime": "0.054s",
       "failureReason": "N/A"
     },
     {
@@ -6055,7 +6055,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.078s",
+      "executionTime": "0.061s",
       "failureReason": "N/A"
     },
     {
@@ -6070,7 +6070,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -6085,7 +6085,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.057s",
       "failureReason": "N/A"
     },
     {
@@ -6100,7 +6100,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.060s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -6115,7 +6115,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.092s",
+      "executionTime": "0.112s",
       "failureReason": "N/A"
     },
     {
@@ -6130,7 +6130,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.100s",
+      "executionTime": "0.118s",
       "failureReason": "N/A"
     },
     {
@@ -6145,7 +6145,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.104s",
       "failureReason": "N/A"
     },
     {
@@ -6160,7 +6160,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.110s",
       "failureReason": "N/A"
     },
     {
@@ -6175,7 +6175,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.107s",
+      "executionTime": "0.089s",
       "failureReason": "N/A"
     },
     {
@@ -6190,7 +6190,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.045s",
+      "executionTime": "0.080s",
       "failureReason": "N/A"
     },
     {
@@ -6205,7 +6205,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.047s",
+      "executionTime": "0.109s",
       "failureReason": "N/A"
     },
     {
@@ -6220,7 +6220,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.054s",
       "failureReason": "N/A"
     },
     {
@@ -6235,7 +6235,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.142s",
       "failureReason": "N/A"
     },
     {
@@ -6250,7 +6250,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.142s",
+      "executionTime": "0.056s",
       "failureReason": "N/A"
     },
     {
@@ -6265,7 +6265,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.091s",
+      "executionTime": "0.135s",
       "failureReason": "N/A"
     },
     {
@@ -6280,7 +6280,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.131s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -6295,7 +6295,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.143s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -6310,7 +6310,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.088s",
       "failureReason": "N/A"
     },
     {
@@ -6325,7 +6325,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.152s",
+      "executionTime": "0.119s",
       "failureReason": "N/A"
     },
     {
@@ -6340,7 +6340,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.083s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -6355,7 +6355,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.084s",
+      "executionTime": "0.096s",
       "failureReason": "N/A"
     },
     {
@@ -6370,7 +6370,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.071s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -6385,7 +6385,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -6400,7 +6400,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.088s",
       "failureReason": "N/A"
     },
     {
@@ -6415,7 +6415,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.124s",
+      "executionTime": "0.079s",
       "failureReason": "N/A"
     },
     {
@@ -6430,7 +6430,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.078s",
       "failureReason": "N/A"
     },
     {
@@ -6445,7 +6445,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.136s",
+      "executionTime": "0.091s",
       "failureReason": "N/A"
     },
     {
@@ -6460,7 +6460,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.059s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -6475,7 +6475,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.085s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -6490,7 +6490,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.113s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -6505,7 +6505,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.043s",
+      "executionTime": "0.126s",
       "failureReason": "N/A"
     },
     {
@@ -6520,7 +6520,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.087s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -6535,7 +6535,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.059s",
+      "executionTime": "0.139s",
       "failureReason": "N/A"
     },
     {
@@ -6550,7 +6550,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.110s",
       "failureReason": "N/A"
     },
     {
@@ -6565,7 +6565,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.054s",
       "failureReason": "N/A"
     },
     {
@@ -6580,7 +6580,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.097s",
+      "executionTime": "0.068s",
       "failureReason": "N/A"
     },
     {
@@ -6595,7 +6595,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.070s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -6610,7 +6610,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.095s",
+      "executionTime": "0.060s",
       "failureReason": "N/A"
     },
     {
@@ -6625,7 +6625,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.145s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -6640,7 +6640,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.130s",
+      "executionTime": "0.088s",
       "failureReason": "N/A"
     },
     {
@@ -6655,7 +6655,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.154s",
+      "executionTime": "0.121s",
       "failureReason": "N/A"
     },
     {
@@ -6670,7 +6670,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.074s",
+      "executionTime": "0.132s",
       "failureReason": "N/A"
     },
     {
@@ -6685,7 +6685,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.065s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -6700,7 +6700,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.057s",
+      "executionTime": "0.116s",
       "failureReason": "N/A"
     },
     {
@@ -6715,7 +6715,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.093s",
+      "executionTime": "0.157s",
       "failureReason": "N/A"
     },
     {
@@ -6730,7 +6730,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.154s",
+      "executionTime": "0.062s",
       "failureReason": "N/A"
     },
     {
@@ -6760,7 +6760,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.157s",
+      "executionTime": "0.123s",
       "failureReason": "N/A"
     },
     {
@@ -6775,7 +6775,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.100s",
       "failureReason": "N/A"
     },
     {
@@ -6790,7 +6790,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.128s",
       "failureReason": "N/A"
     },
     {
@@ -6805,7 +6805,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.159s",
+      "executionTime": "0.150s",
       "failureReason": "N/A"
     },
     {
@@ -6820,7 +6820,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.151s",
+      "executionTime": "0.127s",
       "failureReason": "N/A"
     },
     {
@@ -6835,7 +6835,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.138s",
+      "executionTime": "0.082s",
       "failureReason": "N/A"
     },
     {
@@ -6850,7 +6850,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.087s",
+      "executionTime": "0.070s",
       "failureReason": "N/A"
     },
     {
@@ -6865,7 +6865,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.105s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -6880,7 +6880,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.078s",
+      "executionTime": "0.096s",
       "failureReason": "N/A"
     },
     {
@@ -6895,7 +6895,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.156s",
       "failureReason": "N/A"
     },
     {
@@ -6910,7 +6910,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.107s",
+      "executionTime": "0.140s",
       "failureReason": "N/A"
     },
     {
@@ -6925,7 +6925,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.153s",
       "failureReason": "N/A"
     },
     {
@@ -6940,7 +6940,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.096s",
+      "executionTime": "0.151s",
       "failureReason": "N/A"
     },
     {
@@ -6955,7 +6955,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.158s",
+      "executionTime": "0.124s",
       "failureReason": "N/A"
     },
     {
@@ -6970,7 +6970,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.108s",
+      "executionTime": "0.137s",
       "failureReason": "N/A"
     },
     {
@@ -6985,7 +6985,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.091s",
+      "executionTime": "0.154s",
       "failureReason": "N/A"
     },
     {
@@ -7000,7 +7000,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.077s",
       "failureReason": "N/A"
     },
     {
@@ -7015,7 +7015,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.154s",
+      "executionTime": "0.115s",
       "failureReason": "N/A"
     },
     {
@@ -7030,7 +7030,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.074s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -7045,7 +7045,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.045s",
+      "executionTime": "0.087s",
       "failureReason": "N/A"
     },
     {
@@ -7060,7 +7060,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.050s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -7075,7 +7075,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.061s",
+      "executionTime": "0.151s",
       "failureReason": "N/A"
     },
     {
@@ -7090,7 +7090,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.097s",
       "failureReason": "N/A"
     },
     {
@@ -7105,7 +7105,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.107s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -7120,7 +7120,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.067s",
+      "executionTime": "0.148s",
       "failureReason": "N/A"
     },
     {
@@ -7135,7 +7135,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.072s",
       "failureReason": "N/A"
     },
     {
@@ -7150,7 +7150,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.145s",
+      "executionTime": "0.107s",
       "failureReason": "N/A"
     },
     {
@@ -7165,7 +7165,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.147s",
+      "executionTime": "0.041s",
       "failureReason": "N/A"
     },
     {
@@ -7180,7 +7180,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.062s",
+      "executionTime": "0.058s",
       "failureReason": "N/A"
     },
     {
@@ -7195,7 +7195,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.092s",
+      "executionTime": "0.064s",
       "failureReason": "N/A"
     },
     {
@@ -7210,7 +7210,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.141s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -7225,7 +7225,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.073s",
+      "executionTime": "0.147s",
       "failureReason": "N/A"
     },
     {
@@ -7240,7 +7240,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.101s",
+      "executionTime": "0.140s",
       "failureReason": "N/A"
     },
     {
@@ -7255,7 +7255,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.046s",
       "failureReason": "N/A"
     },
     {
@@ -7270,7 +7270,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.063s",
+      "executionTime": "0.081s",
       "failureReason": "N/A"
     },
     {
@@ -7285,7 +7285,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.145s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -7300,7 +7300,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.075s",
+      "executionTime": "0.073s",
       "failureReason": "N/A"
     },
     {
@@ -7315,7 +7315,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.068s",
+      "executionTime": "0.094s",
       "failureReason": "N/A"
     },
     {
@@ -7330,7 +7330,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.156s",
+      "executionTime": "0.047s",
       "failureReason": "N/A"
     },
     {
@@ -7345,7 +7345,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.156s",
+      "executionTime": "0.077s",
       "failureReason": "N/A"
     },
     {
@@ -7360,7 +7360,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.090s",
+      "executionTime": "0.124s",
       "failureReason": "N/A"
     },
     {
@@ -7375,7 +7375,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.122s",
+      "executionTime": "0.044s",
       "failureReason": "N/A"
     },
     {
@@ -7390,7 +7390,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.069s",
+      "executionTime": "0.155s",
       "failureReason": "N/A"
     },
     {
@@ -7405,7 +7405,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.076s",
       "failureReason": "N/A"
     },
     {
@@ -7420,7 +7420,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.069s",
+      "executionTime": "0.091s",
       "failureReason": "N/A"
     },
     {
@@ -7435,7 +7435,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.050s",
+      "executionTime": "0.091s",
       "failureReason": "N/A"
     },
     {
@@ -7450,7 +7450,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.056s",
+      "executionTime": "0.052s",
       "failureReason": "N/A"
     },
     {
@@ -7465,7 +7465,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.090s",
+      "executionTime": "0.133s",
       "failureReason": "N/A"
     },
     {
@@ -7480,7 +7480,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.098s",
+      "executionTime": "0.074s",
       "failureReason": "N/A"
     },
     {
@@ -7495,7 +7495,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.146s",
+      "executionTime": "0.117s",
       "failureReason": "N/A"
     },
     {
@@ -7510,7 +7510,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.140s",
+      "executionTime": "0.083s",
       "failureReason": "N/A"
     },
     {
@@ -7525,7 +7525,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.081s",
+      "executionTime": "0.094s",
       "failureReason": "N/A"
     },
     {
@@ -7540,7 +7540,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.102s",
+      "executionTime": "0.080s",
       "failureReason": "N/A"
     },
     {
@@ -7555,7 +7555,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.141s",
+      "executionTime": "0.125s",
       "failureReason": "N/A"
     },
     {
@@ -7570,7 +7570,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.069s",
+      "executionTime": "0.095s",
       "failureReason": "N/A"
     },
     {
@@ -7585,7 +7585,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.159s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -7600,7 +7600,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.074s",
+      "executionTime": "0.141s",
       "failureReason": "N/A"
     },
     {
@@ -7615,7 +7615,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.125s",
+      "executionTime": "0.103s",
       "failureReason": "N/A"
     },
     {
@@ -7630,7 +7630,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.041s",
+      "executionTime": "0.098s",
       "failureReason": "N/A"
     },
     {
@@ -7645,7 +7645,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.126s",
+      "executionTime": "0.053s",
       "failureReason": "N/A"
     },
     {
@@ -7660,7 +7660,7 @@
       "actualResult": "Android UiAutomator2 view accessibility ID verified. State matched expected criteria.",
       "status": "PASSED",
       "passFail": "PASS",
-      "executionTime": "0.139s",
+      "executionTime": "0.138s",
       "failureReason": "N/A"
     }
   ]
