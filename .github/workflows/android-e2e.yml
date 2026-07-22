@@ -105,3 +105,4 @@ jobs:
           if [ -f appium-tests/reports/summary.md ]; then
             cat appium-tests/reports/summary.md >> $GITHUB_STEP_SUMMARY
           fi
+
