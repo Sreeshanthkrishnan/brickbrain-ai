@@ -37,8 +37,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build Web Assets (with repository subfolder base path)
-        run: npm run build -- --base=/${{ github.event.repository.name }}/
+      - name: Build Web Assets
+        run: npm run build
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
