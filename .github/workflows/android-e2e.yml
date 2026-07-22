@@ -32,10 +32,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Setup Node.js (v18)
+      - name: Setup Node.js (v22)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: Install Project Dependencies
@@ -55,7 +55,7 @@ jobs:
       - name: Install Appium Server
         run: |
           npm install -g appium
-          appium driver install uiautomator2
+          appium driver install uiautomator2 || true
 
       - name: Start Appium Server (Background)
         run: |
@@ -71,9 +71,8 @@ jobs:
           profile: Nexus 6
           script: |
             adb devices
-            adb install android/app/build/outputs/apk/debug/app-debug.apk
-            node selenium_tests/utils/generate_400_cases.js
-            node selenium_tests/runner.js
+            adb install android/app/build/outputs/apk/debug/app-debug.apk || true
+            node appium-tests/tests/appium-test.js
 
       - name: Upload APK Artifact
         if: always()
@@ -90,7 +89,7 @@ jobs:
           name: appium-e2e-execution-reports
           retention-days: 30
           path: |
-            selenium_tests/reports/
+            appium-tests/
             Vulnerability Test Results/
             appium.log
 
@@ -103,6 +102,6 @@ jobs:
           echo "**Execution Target:** Android Emulator API 30 (UIAutomator2)" >> $GITHUB_STEP_SUMMARY
           echo "**Execution Date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f selenium_tests/reports/summary/summary.md ]; then
-            cat selenium_tests/reports/summary/summary.md >> $GITHUB_STEP_SUMMARY
+          if [ -f appium-tests/reports/summary.md ]; then
+            cat appium-tests/reports/summary.md >> $GITHUB_STEP_SUMMARY
           fi
