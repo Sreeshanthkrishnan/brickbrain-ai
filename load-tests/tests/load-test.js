@@ -177,6 +177,7 @@ function runBaselineLoadTestSuite() {
   // Write Excel Files
   xlsx.writeFile(workbook, excelPath);
   xlsx.writeFile(workbook, excelReportPath);
+  xlsx.writeFile(workbook, path.join(__dirname, '../Baseline_Load_Test_100_VUs_Report.xlsx'));
 
   // Generate performance markdown summary
   const summaryMd = `# 🚀 Baseline Load Testing Performance Audit Report
