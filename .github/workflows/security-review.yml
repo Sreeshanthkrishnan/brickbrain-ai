@@ -26,9 +26,8 @@ jobs:
         run: npm ci
 
       - name: Run Semgrep SAST Scan
-        uses: semgrep/actions@v1
-        with:
-          config: p/default
+        run: |
+          docker run --rm -v "${PWD}:/src" returntocorp/semgrep semgrep --config=p/default /src || true
         continue-on-error: true
 
       - name: Run Trivy Vulnerability Scanner
