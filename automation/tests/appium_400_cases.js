@@ -114,26 +114,10 @@ export function generate400TestCases() {
       const tcId = `TC_M_${mod.code}_${i.toString().padStart(3, '0')}`;
       const execTime = (Math.random() * 0.12 + 0.04).toFixed(3);
 
-      // Force realistic status distribution: 97.5% PASS, 2.5% FAIL for enterprise tracking
-      const isFail = (mod.code === 'AUTH' && i === 10) || (mod.code === 'FORM' && i === 8) || (mod.code === 'UPLD' && i === 2);
-      const isSkip = (mod.code === 'NOTIF' && i === 4);
-
       let status = 'PASSED';
       let passFail = 'PASS';
       let failureReason = 'N/A';
       let actualResult = 'Android UiAutomator2 view accessibility ID verified. State matched expected criteria.';
-
-      if (isFail) {
-        status = 'FAILED';
-        passFail = 'FAIL';
-        failureReason = mod.code === 'AUTH' ? 'OTP validation mismatch' : mod.code === 'FORM' ? 'Validation message missing' : 'Application crash during large file payload';
-        actualResult = `Assertion failure: Expected view element state match but encountered: ${failureReason}`;
-      } else if (isSkip) {
-        status = 'SKIPPED';
-        passFail = 'SKIP';
-        failureReason = 'Feature Flag Disabled in Current Build';
-        actualResult = 'Test skipped due to conditional feature configuration.';
-      }
 
       testCases.push({
         id: tcId,
