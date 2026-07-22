@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Run SAST Code Analysis & Secret Scan
-        run: npm audit || exit 0
+        run: npm audit || true
 
       - name: Generate Security & Performance Reports
         run: |
