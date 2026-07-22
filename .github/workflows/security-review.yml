@@ -26,10 +26,7 @@ jobs:
         run: npm ci
 
       - name: Run SAST Code Analysis & Secret Scan
-        run: |
-          echo "Executing SAST Code Analysis & Dependency Vulnerability Audit..."
-          npm audit || true
-        continue-on-error: true
+        run: npm audit || exit 0
 
       - name: Generate Security & Performance Reports
         run: |
