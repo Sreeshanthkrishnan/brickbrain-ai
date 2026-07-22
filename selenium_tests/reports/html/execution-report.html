@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrickBrain AI - E2E Selenium Test Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0B1F3A;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(255, 107, 0, 0.1) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(26, 53, 86, 0.4) 0, transparent 50%);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white font-sans p-6 lg:p-12">
+  <div class="max-w-7xl mx-auto space-y-8">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight">
+          Brick<span class="text-[#FF6B00]">Brain</span> AI
+        </h1>
+        <p class="text-white/60 mt-1">Selenium E2E Automation Execution Report</p>
+      </div>
+      <div class="flex flex-col items-end text-sm text-white/50 font-mono">
+        <p>Execution Time: 22/7/2026, 9:18:02 am</p>
+        <p>Driver: Chrome Headless (via local chromedriver)</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="glass rounded-3xl p-6 flex flex-col justify-between">
+        <span class="text-white/50 text-sm font-semibold">Total Scenarios</span>
+        <span class="text-4xl font-bold mt-2 text-white">23</span>
+      </div>
+      <div class="glass rounded-3xl p-6 flex flex-col justify-between border-green-500/20">
+        <span class="text-white/50 text-sm font-semibold">Passed</span>
+        <span class="text-4xl font-bold mt-2 text-green-400">0</span>
+      </div>
+      <div class="glass rounded-3xl p-6 flex flex-col justify-between border-red-500/20">
+        <span class="text-white/50 text-sm font-semibold">Failed</span>
+        <span class="text-4xl font-bold mt-2 text-red-400">23</span>
+      </div>
+      <div class="glass rounded-3xl p-6 flex flex-col justify-between border-[#FF6B00]/20">
+        <span class="text-white/50 text-sm font-semibold">Pass Rate</span>
+        <span class="text-4xl font-bold mt-2 text-[#FF6B00]">0.0%</span>
+      </div>
+    </div>
+
+    <!-- Duration Summary Banner -->
+    <div class="glass rounded-2xl px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-[#FF6B00] animate-pulse"></div>
+        <span class="font-semibold">Full Test Run completed in <span class="font-mono text-[#FF6B00]">69.93s</span></span>
+      </div>
+      <div class="text-xs text-white/40">
+        Reports compiled into xlsx and markdown formats successfully.
+      </div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="glass rounded-3xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-white/10 bg-white/5 text-white/60 font-semibold text-sm">
+              <th class="px-6 py-4">ID</th>
+              <th class="px-6 py-4">Module</th>
+              <th class="px-6 py-4">Test Scenario</th>
+              <th class="px-6 py-4">Status</th>
+              <th class="px-6 py-4">Duration</th>
+              <th class="px-6 py-4">Error details</th>
+              <th class="px-6 py-4">Screenshot</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_001</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Authentication</td>
+        <td class="px-6 py-4 text-sm text-white">Welcome Screen Loading</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.65s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Welcome_Screen_Loading_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_002</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Authentication</td>
+        <td class="px-6 py-4 text-sm text-white">User Registration Flow</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">11.02s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="Waiting for element to be located By(xpath, //button[span[text()='Create Account']])
+Wait timed out after 11021ms">Waiting for element to be located By(xpath, //button[span[text()='Create Account']])
+Wait timed out after 11021ms</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/User_Registration_Flow_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_003</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Authentication</td>
+        <td class="px-6 py-4 text-sm text-white">Invalid Login Flow</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.37s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Invalid_Login_Flow_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_004</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Authentication</td>
+        <td class="px-6 py-4 text-sm text-white">User Login Flow</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.39s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/User_Login_Flow_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_005</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Dashboard</td>
+        <td class="px-6 py-4 text-sm text-white">Dashboard Home Load Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">6.63s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="Dashboard stats widgets not rendered">Dashboard stats widgets not rendered</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Dashboard_Home_Load_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_006</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Dashboard</td>
+        <td class="px-6 py-4 text-sm text-white">Sidebar Navigation Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">11.12s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="Waiting for element to be located By(xpath, //button[span[text()='Labour Planning']] | //button[contains(., 'Labour Planning')])
+Wait timed out after 11115ms">Waiting for element to be located By(xpath, //button[span[text()='Labour Planning']] | //button[contains(., 'Labour Planning')])
+Wait timed out after 11115ms</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Sidebar_Navigation_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_007</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">AI Cost Estimation</td>
+        <td class="px-6 py-4 text-sm text-white">AI Cost Estimation & Calculations</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.39s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/AI_Cost_Estimation___Calculations_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_008</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Material Calculator</td>
+        <td class="px-6 py-4 text-sm text-white">Materials Quantity Calculator</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.17s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Materials_Quantity_Calculator_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_009</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Live Material Pricing</td>
+        <td class="px-6 py-4 text-sm text-white">Live Materials Pricing Tracker</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.14s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Live_Materials_Pricing_Tracker_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_010</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Project Management</td>
+        <td class="px-6 py-4 text-sm text-white">Construction Gantt Timeline Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.16s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Construction_Gantt_Timeline_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_011</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">3D Modules</td>
+        <td class="px-6 py-4 text-sm text-white">3D House Visualizer Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.21s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/3D_House_Visualizer_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_012</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">3D Modules</td>
+        <td class="px-6 py-4 text-sm text-white">3D Floor Plan Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.11s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/3D_Floor_Plan_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_013</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Project Management</td>
+        <td class="px-6 py-4 text-sm text-white">Milestones Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.25s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Milestones_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_014</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Budget Tracking</td>
+        <td class="px-6 py-4 text-sm text-white">Budget Tracking & Expenses Log</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.10s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Budget_Tracking___Expenses_Log_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_015</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Labour Planning</td>
+        <td class="px-6 py-4 text-sm text-white">Labour Directory & Wages Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.20s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Labour_Directory___Wages_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_016</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Labour Planning</td>
+        <td class="px-6 py-4 text-sm text-white">Attendance Monitoring Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.09s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Attendance_Monitoring_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_017</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Team Management</td>
+        <td class="px-6 py-4 text-sm text-white">Team Directory Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.25s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Team_Directory_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_018</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">AI Chatbot</td>
+        <td class="px-6 py-4 text-sm text-white">AI Chatbot Query & Response Flow</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.07s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/AI_Chatbot_Query___Response_Flow_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_019</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">AI Defect Detection</td>
+        <td class="px-6 py-4 text-sm text-white">AI Defect Detection Interface</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.24s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/AI_Defect_Detection_Interface_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_020</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Reports</td>
+        <td class="px-6 py-4 text-sm text-white">Reports Export Verification</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">0.10s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Reports_Export_Verification_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_021</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">General UI</td>
+        <td class="px-6 py-4 text-sm text-white">Brand Header & Theme Consistency</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">6.50s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="BrickBrain brand logo header not visible">BrickBrain brand logo header not visible</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Brand_Header___Theme_Consistency_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_022</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">General UI</td>
+        <td class="px-6 py-4 text-sm text-white">Mobile Responsive Layout Drawer</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">8.41s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="Mobile layout top hamburger button not visible">Mobile layout top hamburger button not visible</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/Mobile_Responsive_Layout_Drawer_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+        <td class="px-6 py-4 text-sm font-mono text-white/50">TC_023</td>
+        <td class="px-6 py-4 text-sm font-semibold text-white/80">Authentication</td>
+        <td class="px-6 py-4 text-sm text-white">User Logout Flow</td>
+        <td class="px-6 py-4">
+          <span class="px-3 py-1 rounded-full text-xs font-bold border bg-red-500/20 text-red-400 border-red-500/30">
+            FAILED
+          </span>
+        </td>
+        <td class="px-6 py-4 text-sm text-white/60 font-mono">2.38s</td>
+        <td class="px-6 py-4 text-sm text-red-400 font-mono max-w-xs truncate" title="unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)">unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=150.0.7871.129)</td>
+        <td class="px-6 py-4 text-sm"><a href="../screenshots/User_Logout_Flow_failed.png" target="_blank" class="text-[#FF6B00] hover:underline font-semibold flex items-center gap-1">📸 View Screen</a></td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

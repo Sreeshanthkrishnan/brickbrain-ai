@@ -1,0 +1,126 @@
+name: Deploy to GitHub Pages & Run E2E Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissions needed for deploying to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy Web Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Web Assets (with repository subfolder base path)
+        run: npm run build -- --base=/${{ github.event.repository.name }}/
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-and-test:
+    name: Verify Deployment & Test Suite
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Wait for GitHub Pages Deployment to be Live
+        run: |
+          URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "GitHub Pages Target URL: $URL"
+          
+          # Max wait time: ~3 minutes (18 retries * 10 seconds)
+          for i in {1..18}; do
+            STATUS=$(curl -o /dev/null -s -w "%{http_code}" -L "$URL")
+            if [ "$STATUS" -eq 200 ]; then
+              echo "Deployment is online and returning HTTP 200!"
+              exit 0
+            fi
+            echo "URL returned HTTP status $STATUS. Retrying in 10s (attempt $i/18)..."
+            sleep 10
+          done
+          echo "Error: Deployment verification timed out. Website is not returning HTTP 200."
+          exit 1
+
+      - name: Start Backend Server & Run Test Suite
+        env:
+          PORT: 3002
+          NODE_ENV: test
+          MONGODB_URI: mongodb://localhost:27017/brickbrain_test
+        run: |
+          npm run test
+
+      - name: Upload Test Reports Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            test-report.html
+            test-report.json
+
+      - name: Publish Workflow Run Summary
+        if: always()
+        run: |
+          URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          
+          echo "### 🚀 CI/CD Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment Status:** Successful ✅" >> $GITHUB_STEP_SUMMARY
+          echo "**Production URL:** [$URL]($URL)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f test-report.json ]; then
+            PASSED=$(node -e "const fs = require('fs'); console.log(JSON.parse(fs.readFileSync('test-report.json', 'utf8')).passed)")
+            FAILED=$(node -e "const fs = require('fs'); console.log(JSON.parse(fs.readFileSync('test-report.json', 'utf8')).failed)")
+            TOTAL=$((PASSED + FAILED))
+            
+            echo "#### 🧪 Automated Test Summary" >> $GITHUB_STEP_SUMMARY
+            echo "- **Total Tests Run:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+            echo "- **Passed:** $PASSED ✅" >> $GITHUB_STEP_SUMMARY
+            echo "- **Failed:** $FAILED ❌" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Test report file not found. Automated tests might have failed to execute." >> $GITHUB_STEP_SUMMARY
+          fi

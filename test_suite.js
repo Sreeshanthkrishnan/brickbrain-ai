@@ -1,6 +1,7 @@
 import { spawn } from 'child_process';
 import http from 'http';
 import dns from 'dns';
+import fs from 'fs';
 
 // Ensure DNS works locally
 try {
@@ -330,6 +331,193 @@ async function runTests() {
     console.log('\n\x1b[36m=== TEST SUMMARY ===\x1b[0m');
     console.log(`Passed: \x1b[32m${results.passed}\x1b[0m / ${results.passed + results.failed}`);
     console.log(`Failed: \x1b[31m${results.failed}\x1b[0m`);
+
+    // Generate reports
+    try {
+      // Write HTML report with a beautiful and dynamic design
+      let html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BrickBrain Test Suite Report</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #6366f1;
+      --success: #10b981;
+      --error: #ef4444;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      background: linear-gradient(to right, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+    .metric-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .metric-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-value {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .value-total { color: var(--primary); }
+    .value-passed { color: var(--success); }
+    .value-failed { color: var(--error); }
+    
+    .table-container {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      background-color: rgba(15, 23, 42, 0.3);
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-pass {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .badge-fail {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .error-details {
+      font-family: monospace;
+      color: var(--error);
+      font-size: 0.85rem;
+      margin-top: 4px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BrickBrain Test Suite</h1>
+    <div class="subtitle">Automated CI/CD End-to-End Verification Report</div>
+    
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-label">Total Tests</div>
+        <div class="metric-value value-total">${results.passed + results.failed}</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Passed</div>
+        <div class="metric-value value-passed">${results.passed}</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Failed</div>
+        <div class="metric-value value-failed">${results.failed}</div>
+      </div>
+    </div>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Test Name</th>
+            <th>Status</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+`;
+      for (const t of results.tests) {
+        html += `          <tr>
+            <td>${t.name}</td>
+            <td>
+              <span class="status-badge ${t.status === 'pass' ? 'badge-pass' : 'badge-fail'}">
+                ${t.status === 'pass' ? 'Passed' : 'Failed'}
+              </span>
+            </td>
+            <td>
+              ${t.error ? `<div class="error-details">${t.error}</div>` : '<span style="color: var(--text-muted); font-size: 0.875rem;">None</span>'}
+            </td>
+          </tr>
+`;
+      }
+      html += `        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>`;
+
+      fs.writeFileSync('test-report.json', JSON.stringify(results, null, 2), 'utf8');
+      fs.writeFileSync('test-report.html', html, 'utf8');
+      console.log('Saved test-report.json and test-report.html successfully.');
+    } catch (reportErr) {
+      console.error('Failed to write reports:', reportErr);
+    }
     
     stopTestServer();
     process.exit(results.failed > 0 ? 1 : 0);

@@ -1,0 +1,70 @@
+name: SAST, DAST Security & Dependency Audit Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  security-audit:
+    name: Backend Security Audit, Semgrep, Trivy & Load Testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Semgrep SAST Scan
+        uses: semgrep/actions@v1
+        with:
+          config: p/default
+        continue-on-error: true
+
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+
+      - name: Run Gitleaks Secret Scanner
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Generate Security & Performance Reports
+        run: |
+          node selenium_tests/utils/generate_security_docs.js
+          node selenium_tests/utils/generate_performance_docs.js
+
+      - name: Upload Audit Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-security-audit-reports
+          retention-days: 30
+          path: |
+            Vulnerability Test Results/
+
+      - name: Publish Security Audit Summary
+        if: always()
+        run: |
+          echo "# 🛡️ Backend Security Audit & SAST/DAST Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f "Vulnerability Test Results/executive-summary.md" ]; then
+            cat "Vulnerability Test Results/executive-summary.md" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 
 // Auth screens
 import SplashScreen from "./screens/SplashScreen";
@@ -38,11 +38,14 @@ import CustomerSupport from "./screens/CustomerSupport";
 import FAQScreen from "./screens/FAQScreen";
 import AboutBrickBrain from "./screens/AboutBrickBrain";
 import SuccessScreen from "./screens/SuccessScreen";
+import AIDefectDetection from "./screens/AIDefectDetection";
+import SitePhotoUpload from "./screens/SitePhotoUpload";
+import ReportsExport from "./screens/ReportsExport";
 
 // Layout wrapper
 import MainLayout from "./layouts/MainLayout";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <SplashScreen />,
@@ -106,6 +109,9 @@ export const router = createBrowserRouter([
       { path: "faq", element: <FAQScreen /> },
       { path: "about", element: <AboutBrickBrain /> },
       { path: "success", element: <SuccessScreen /> },
+      { path: "defects", element: <AIDefectDetection /> },
+      { path: "site-photos", element: <SitePhotoUpload /> },
+      { path: "reports", element: <ReportsExport /> },
     ],
   },
 ]);

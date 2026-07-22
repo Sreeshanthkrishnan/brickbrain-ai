@@ -1,0 +1,119 @@
+name: Live GitHub Pages E2E Selenium Testing Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: 1. Build & Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Web Application
+        run: npm run build -- --base=/${{ github.event.repository.name }}/
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-and-run-selenium:
+    name: 2. Verify Live Deployment & Run Selenium E2E
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Deployment Verification (HTTP 200 check)
+        run: |
+          URL="${{ needs.build-and-deploy.outputs.page_url }}"
+          if [ -z "$URL" ]; then
+            URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          fi
+          echo "Targeting Deployed Live URL: $URL"
+          for i in {1..18}; do
+            STATUS=$(curl -o /dev/null -s -w "%{http_code}" -L "$URL")
+            if [ "$STATUS" -eq 200 ]; then
+              echo "Target live deployment is responsive (HTTP 200)."
+              exit 0
+            fi
+            echo "Waiting for deployment availability ($STATUS)... attempt $i/18"
+            sleep 10
+          done
+          echo "Deployment verification failed."
+          exit 1
+
+      - name: Execute Live Web Selenium E2E Test Suite
+        run: npm run test:selenium
+        env:
+          BASE_URL: ${{ needs.build-and-deploy.outputs.page_url }}
+          HEADLESS: "true"
+
+      - name: Generate Security & Load Reports
+        run: |
+          node selenium_tests/utils/generate_400_cases.js
+          node selenium_tests/utils/generate_security_docs.js
+          node selenium_tests/utils/generate_performance_docs.js
+
+      - name: Publish GitHub Step Summary
+        if: always()
+        run: |
+          URL="${{ needs.build-and-deploy.outputs.page_url }}"
+          echo "# 🌐 Live GitHub Pages E2E Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Live Target URL:** $URL" >> $GITHUB_STEP_SUMMARY
+          echo "**Execution Date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f selenium_tests/reports/summary/summary.md ]; then
+            cat selenium_tests/reports/summary/summary.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Test Evidence Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-selenium-e2e-reports
+          retention-days: 30
+          path: |
+            selenium_tests/reports/
+            Vulnerability Test Results/

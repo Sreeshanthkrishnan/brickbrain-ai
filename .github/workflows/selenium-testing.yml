@@ -1,0 +1,65 @@
+name: E2E Selenium Testing & Reporting
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Build & Run E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Start Backend Server
+        run: |
+          node server.js &
+          npx wait-on http://localhost:3001 --timeout 20000
+        env:
+          PORT: 3001
+          NODE_ENV: test
+
+      - name: Run Selenium E2E Tests
+        run: npm run test:selenium
+        env:
+          PORT: 3001
+          HEADLESS: true
+
+      - name: Publish Test Summary
+        if: always()
+        run: |
+          if [ -f selenium_tests/reports/summary/summary.md ]; then
+            cat selenium_tests/reports/summary/summary.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "# E2E Tests Failed to Generate Summary" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Automation Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-execution-reports
+          path: |
+            selenium_tests/reports/html/
+            selenium_tests/reports/excel/
+            selenium_tests/reports/screenshots/
+            selenium_tests/reports/logs/
+            selenium_tests/reports/summary/
+          if-no-files-found: warn

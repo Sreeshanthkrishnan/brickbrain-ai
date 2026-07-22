@@ -1,0 +1,50 @@
+{
+  "passed": 11,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Security: Path Traversal Attempt Blocked",
+      "status": "pass"
+    },
+    {
+      "name": "Security: Max Body Size Limit enforced (413 Payload Too Large)",
+      "status": "pass"
+    },
+    {
+      "name": "Validation: Invalid email format rejected during registration",
+      "status": "pass"
+    },
+    {
+      "name": "Validation: Short password (<6 chars) rejected during registration",
+      "status": "pass"
+    },
+    {
+      "name": "API: Register new test account",
+      "status": "pass"
+    },
+    {
+      "name": "Validation: Duplicate email registration rejected",
+      "status": "pass"
+    },
+    {
+      "name": "API: Login rejected with incorrect credentials",
+      "status": "pass"
+    },
+    {
+      "name": "API: Log in successfully with valid credentials",
+      "status": "pass"
+    },
+    {
+      "name": "API: Fetch active project state (sanitized profile security)",
+      "status": "pass"
+    },
+    {
+      "name": "Logic: Add materials to cart and assert dynamic project cost recalculation formula",
+      "status": "pass"
+    },
+    {
+      "name": "Security: Authentication request rate limiter blocks client on flood (429 status)",
+      "status": "pass"
+    }
+  ]
+}

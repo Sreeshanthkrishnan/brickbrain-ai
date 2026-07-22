@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BrickBrain Selenium E2E Report</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary: #FF6B00;
+      --success: #10b981;
+      --error: #ef4444;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      background: linear-gradient(to right, #FF6B00, #FF8F3D);
+      -webkit-background-clip: text;
+      -webkit-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+    .metric-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .metric-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-value {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .value-total { color: #6366f1; }
+    .value-passed { color: var(--success); }
+    .value-failed { color: var(--error); }
+    .value-rate { color: #eab308; }
+    
+    .table-container {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      background-color: rgba(15, 23, 42, 0.4);
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-pass {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .badge-fail {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .screenshot-link {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .screenshot-link:hover {
+      text-decoration: underline;
+    }
+    .error-details {
+      font-family: monospace;
+      color: var(--error);
+      font-size: 0.85rem;
+      margin-top: 6px;
+      background: rgba(239, 68, 68, 0.05);
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BrickBrain Selenium E2E Report</h1>
+    <div class="subtitle">E2E Verification Report & Dashboard</div>
+    
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-label">Total Tests</div>
+        <div class="metric-value value-total">16</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Passed</div>
+        <div class="metric-value value-passed">10</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Failed</div>
+        <div class="metric-value value-failed">6</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Pass Rate</div>
+        <div class="metric-value value-rate">63%</div>
+      </div>
+    </div>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Test Name</th>
+            <th>Duration</th>
+            <th>Status</th>
+            <th>Report/Screenshot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight: 500;">
+              Welcome Screen Loading & Onboarding Navigation
+              
+            </td>
+            <td>1668ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              User Registration Flow
+              
+            </td>
+            <td>2020ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              User Login Flow
+              
+            </td>
+            <td>2666ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Dashboard Home Load Verification
+              
+            </td>
+            <td>31ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Sidebar Navigation Verification
+              
+            </td>
+            <td>141ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              AI Cost Estimation & Calculations
+              <div class="error-details">Estimation results view did not load</div>
+            </td>
+            <td>7557ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\AI_Cost_Estimation___Calculations_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Materials Quantity Calculator
+              
+            </td>
+            <td>2301ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Live Materials Pricing Tracker
+              
+            </td>
+            <td>1261ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Construction Gantt Timeline Verification
+              
+            </td>
+            <td>123ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Budget Tracking & Expenses Log
+              <div class="error-details">Waiting for element to be located By(xpath, //input[@placeholder='e.g. Ultratech Cement'])
+Wait timed out after 11048ms</div>
+            </td>
+            <td>13109ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\Budget_Tracking___Expenses_Log_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Labour Directory & Wages Verification
+              
+            </td>
+            <td>122ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Team Directory Verification
+              
+            </td>
+            <td>120ms</td>
+            <td>
+              <span class="status-badge badge-pass">
+                Passed
+              </span>
+            </td>
+            <td>
+              <span style="color: var(--text-muted); font-size: 0.875rem;">None</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              AI Chatbot Query & Response Flow
+              <div class="error-details">until is not defined</div>
+            </td>
+            <td>91ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\AI_Chatbot_Query___Response_Flow_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              AI Defect Detection Interface
+              <div class="error-details">Defect site photo file input not rendered</div>
+            </td>
+            <td>7575ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\AI_Defect_Detection_Interface_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Reports Export Verification
+              <div class="error-details">Export reports buttons not found on Profile page</div>
+            </td>
+            <td>7598ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\Reports_Export_Verification_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-weight: 500;">
+              Mobile Responsive Layout Drawer
+              <div class="error-details">Mobile drawer links not visible after clicking hamburger</div>
+            </td>
+            <td>9185ms</td>
+            <td>
+              <span class="status-badge badge-fail">
+                Failed
+              </span>
+            </td>
+            <td>
+              <a class="screenshot-link" href="screenshots\Mobile_Responsive_Layout_Drawer_failed.png" target="_blank">🖼️ View Screenshot</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

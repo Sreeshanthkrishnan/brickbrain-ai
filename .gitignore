@@ -4,4 +4,8 @@ dist/
 .DS_Store
 *.log
 backend_db_local.json
+*.bak
+selenium_tests/reports/screenshots/*.png
+selenium_tests/reports/excel/*.xlsx
+
 
