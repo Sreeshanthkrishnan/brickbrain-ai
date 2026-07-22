@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: Install Dependencies
@@ -27,6 +27,7 @@ jobs:
 
       - name: Run SAST Code Analysis & Secret Scan
         run: npm audit || true
+        continue-on-error: true
 
       - name: Generate Security & Performance Reports
         run: |
