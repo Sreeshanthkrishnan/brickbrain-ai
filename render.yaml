@@ -1,0 +1,27 @@
+services:
+  # 1. Backend REST API Web Service (Node.js)
+  - type: web
+    name: brickbrain-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://admin:Brick123@cluster0.a8kf2hu.mongodb.net/brickbrain?appName=Cluster0
+      - key: JWT_SECRET
+        value: b7f3a2e9c1d8f4a6e0b5c7d9a3f1e8c2d6b4a0e7f5c3d1a9b8e6f4c2d0a7b5
+      - key: NODE_ENV
+        value: production
+
+  # 2. Frontend React Application (Static Site)
+  - type: web
+    name: brickbrain-web
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
