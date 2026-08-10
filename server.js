@@ -743,7 +743,15 @@ async function startServer() {
             }
           }
 
-          sendJSON(200, { message: 'Verification OTP has been sent to your email inbox.' });
+          console.log(`\n==================================================`);
+          console.log(`🔑 PASSWORD RESET OTP GENERATED FOR: ${email}`);
+          console.log(`👉 VERIFICATION CODE: ${otp}`);
+          console.log(`==================================================\n`);
+
+          sendJSON(200, {
+            message: `Verification OTP dispatched! (Dev Code: ${otp})`,
+            devOtp: otp
+          });
         });
         return;
       }

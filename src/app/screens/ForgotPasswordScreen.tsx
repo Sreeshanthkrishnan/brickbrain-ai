@@ -45,8 +45,12 @@ export default function ForgotPasswordScreen() {
         throw new Error(data.error || 'Failed to send verification OTP code.');
       }
 
-      setSuccessMsg('OTP code sent! Please check your email inbox.');
+      if (data.devOtp && typeof data.devOtp === 'string' && data.devOtp.length === 6) {
+        setOtp(data.devOtp.split(''));
+      }
+      setSuccessMsg(data.message || 'OTP code sent! Please check your email inbox.');
       setStep('otp');
+
     } catch (err: any) {
       setErrorMsg(err.message || 'Could not connect to authentication server.');
     } finally {
