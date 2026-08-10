@@ -14,8 +14,12 @@ export default function ForgotPasswordScreen() {
   const [successMsg, setSuccessMsg] = useState('');
 
   const getApiUrl = () => {
-    return localStorage.getItem('brickbrain_api_url') || 'http://localhost:3001';
+    const customUrl = localStorage.getItem('brickbrain_api_url');
+    if (customUrl) return customUrl;
+    // Default to relative path so Vite proxy (or production relative path) works seamlessly
+    return '';
   };
+
 
   // Step 1: Send OTP to real email inbox
   const handleSendOTP = async (e: React.FormEvent) => {
