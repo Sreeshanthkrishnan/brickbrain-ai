@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { MongoClient } from 'mongodb';
 import jwt from 'jsonwebtoken';
 import dns from 'dns';
+import nodemailer from 'nodemailer';
 import 'dotenv/config';
 
 try {
@@ -22,6 +23,45 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brickb
 const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('hex');
 const JWT_EXPIRY = '7d';
 const MAX_BODY_SIZE = 1 * 1024 * 1024; // 1MB
+
+// In-memory OTP storage for password reset: email -> { otp: string, expiresAt: number }
+const otpStore = new Map();
+
+// Nodemailer Transporter Setup
+let mailTransporter = null;
+
+async function initMailTransporter() {
+  if (process.env.SMTP_HOST && process.env.SMTP_USER) {
+    mailTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587', 10),
+      secure: process.env.SMTP_SECURE === 'true',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+    console.log(`SMTP Mail Transporter configured using ${process.env.SMTP_HOST}`);
+  } else {
+    try {
+      const testAccount = await nodemailer.createTestAccount();
+      mailTransporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        secure: false,
+        auth: {
+          user: testAccount.user,
+          pass: testAccount.pass,
+        },
+      });
+      console.log(`Ethereal Test SMTP initialized. Test Email Account: ${testAccount.user}`);
+    } catch (e) {
+      console.warn('Could not initialize Ethereal SMTP test account:', e.message);
+    }
+  }
+}
+initMailTransporter();
+
 
 let db;
 
@@ -635,6 +675,142 @@ async function startServer() {
           const userState = sanitizeUserState(user);
 
           sendJSON(200, { token, profile: user.profile, userState });
+        });
+        return;
+      }
+
+      // POST Forgot Password - Dispatches Real OTP Email
+      if (pathname === '/api/auth/forgot-password' && req.method === 'POST') {
+        const clientIP = getClientIP(req);
+        if (!checkRateLimit(clientIP)) {
+          sendJSON(429, { error: 'Too many requests. Please try again later.' });
+          return;
+        }
+
+        getBody(async (body) => {
+          const { email } = body;
+          if (!email || !isValidEmail(email)) {
+            sendJSON(400, { error: 'A valid email address is required.' });
+            return;
+          }
+
+          const userKey = email.toLowerCase();
+          const existingUser = await db.collection('users').findOne({ email: userKey });
+
+          if (!existingUser) {
+            // Return uniform success to prevent email enumeration
+            sendJSON(200, { message: 'If an account exists with this email, a verification OTP has been sent to your inbox.' });
+            return;
+          }
+
+          // Generate 6-digit OTP
+          const otp = Math.floor(100000 + Math.random() * 900000).toString();
+          const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes expiry
+
+          otpStore.set(userKey, { otp, expiresAt });
+
+          // Send real email via Nodemailer
+          if (mailTransporter) {
+            const mailOptions = {
+              from: process.env.SMTP_FROM || '"BrickBrain Security" <no-reply@brickbrain.ai>',
+              to: email,
+              subject: '🔒 BrickBrain Password Reset Verification Code',
+              html: `
+                <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; background-color: #0f172a; color: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #334155;">
+                  <div style="text-align: center; margin-bottom: 24px;">
+                    <h2 style="color: #ff6b00; margin: 0; font-size: 24px;">BrickBrain AI</h2>
+                    <p style="color: #94a3b8; margin-top: 4px; font-size: 14px;">Construction Cost Estimator & Management</p>
+                  </div>
+                  <h3 style="margin-top: 0; color: #f8fafc; font-size: 18px;">Password Reset Code</h3>
+                  <p style="color: #cbd5e1; font-size: 14px; line-height: 1.5;">You requested to reset your account password. Enter the 6-digit verification code below on the reset screen:</p>
+                  <div style="background-color: #1e293b; padding: 18px; text-align: center; border-radius: 12px; font-size: 34px; font-weight: 800; letter-spacing: 8px; color: #ff6b00; border: 1px solid #ff6b00/30; margin: 24px 0;">
+                    ${otp}
+                  </div>
+                  <p style="color: #94a3b8; font-size: 13px; margin-bottom: 0;">This OTP is valid for <strong>10 minutes</strong>. If you did not request a password reset, you can safely ignore this email.</p>
+                </div>
+              `
+            };
+
+            try {
+              const info = await mailTransporter.sendMail(mailOptions);
+              console.log(`Password reset OTP email dispatched to ${email}. MessageId: ${info.messageId}`);
+              const previewUrl = nodemailer.getTestMessageUrl(info);
+              if (previewUrl) {
+                console.log(`✉️ Ethereal Test Email Inbox Preview URL: ${previewUrl}`);
+              }
+            } catch (mailErr) {
+              console.error(`Failed to dispatch OTP email to ${email}:`, mailErr.message);
+            }
+          }
+
+          sendJSON(200, { message: 'Verification OTP has been sent to your email inbox.' });
+        });
+        return;
+      }
+
+      // POST Reset Password - Streamlined 2-Step (Verifies OTP + Updates Password in 1 request)
+      if (pathname === '/api/auth/reset-password' && req.method === 'POST') {
+        const clientIP = getClientIP(req);
+        if (!checkRateLimit(clientIP)) {
+          sendJSON(429, { error: 'Too many requests. Please try again later.' });
+          return;
+        }
+
+        getBody(async (body) => {
+          const { email, otp, newPassword } = body;
+
+          if (!email || !otp || !newPassword) {
+            sendJSON(400, { error: 'Email, OTP, and new password are all required.' });
+            return;
+          }
+
+          if (!isValidEmail(email)) {
+            sendJSON(400, { error: 'Invalid email format.' });
+            return;
+          }
+
+          if (!isValidString(newPassword, 128) || newPassword.length < 6) {
+            sendJSON(400, { error: 'Password must be between 6 and 128 characters.' });
+            return;
+          }
+
+          const userKey = email.toLowerCase();
+          const storedOtp = otpStore.get(userKey);
+
+          if (!storedOtp) {
+            sendJSON(400, { error: 'No active OTP request found for this email. Please click Send OTP again.' });
+            return;
+          }
+
+          if (Date.now() > storedOtp.expiresAt) {
+            otpStore.delete(userKey);
+            sendJSON(400, { error: 'OTP has expired. Please request a new OTP code.' });
+            return;
+          }
+
+          if (storedOtp.otp !== otp.trim()) {
+            sendJSON(400, { error: 'Invalid OTP code. Please check your email inbox and try again.' });
+            return;
+          }
+
+          // OTP is valid -> Hash new password and update user record
+          const hashedPassword = hashPassword(newPassword);
+
+          const user = await db.collection('users').findOne({ email: userKey });
+          if (!user) {
+            sendJSON(400, { error: 'User account not found.' });
+            return;
+          }
+
+          await db.collection('users').updateOne(
+            { email: userKey },
+            { $set: { password: hashedPassword } }
+          );
+
+          // Clear used OTP from memory
+          otpStore.delete(userKey);
+
+          sendJSON(200, { message: 'Password reset successful! You can now log in with your new password.' });
         });
         return;
       }
