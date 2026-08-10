@@ -192,17 +192,20 @@ const DEFAULT_MILESTONES: Milestone[] = [
   { id: '8', name: 'Painting & Final Handover', status: 'pending', progress: 0, date: 'Pending' }
 ];
 
-// Fetch wrapper that always includes credentials (cookies)
+// Fetch wrapper that sends HttpOnly cookies and Bearer token headers for cross-platform sync
 function apiFetch(url: string, options: RequestInit = {}): Promise<Response> {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('brickbrain_token') : null;
   return fetch(url, {
     ...options,
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
       ...options.headers,
     },
   });
 }
+
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Auth state — no localStorage, determined by server response
@@ -772,6 +775,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (res.ok) {
         const data = await res.json();
         setIsAuthenticated(true);
+        if (data.token) {
+          localStorage.setItem('brickbrain_token', data.token);
+        }
         if (data.profile) setUser(data.profile);
         if (data.userState) {
           hydrateState(data.userState);
@@ -804,6 +810,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (res.ok) {
         const data = await res.json();
         setIsAuthenticated(true);
+        if (data.token) {
+          localStorage.setItem('brickbrain_token', data.token);
+        }
         if (data.profile) setUser(data.profile);
         if (data.userState) {
           hydrateState(data.userState);
@@ -836,6 +845,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (res.ok) {
         const data = await res.json();
         setIsAuthenticated(true);
+        if (data.token) {
+          localStorage.setItem('brickbrain_token', data.token);
+        }
         if (data.profile) setUser(data.profile);
         if (data.userState) {
           hydrateState(data.userState);
@@ -850,6 +862,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       console.warn('Could not connect to authentication server. Entering Offline Demo Mode.');
       setIsAuthenticated(true);
       setUser({
+
         name: 'Google User',
         email: 'googleuser@brickbrain.ai',
         role: 'Homeowner',
