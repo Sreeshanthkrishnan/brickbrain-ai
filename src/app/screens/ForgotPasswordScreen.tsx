@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Mail, KeyRound, ArrowLeft, Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, KeyRound, ArrowLeft, Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2, ExternalLink } from 'lucide-react';
 
 export default function ForgotPasswordScreen() {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ export default function ForgotPasswordScreen() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [previewUrl, setPreviewUrl] = useState('');
 
   const getApiUrl = () => {
     const customUrl = localStorage.getItem('brickbrain_api_url');
@@ -32,6 +33,7 @@ export default function ForgotPasswordScreen() {
     setLoading(true);
     setErrorMsg('');
     setSuccessMsg('');
+    setPreviewUrl('');
 
     try {
       const res = await fetch(`${getApiUrl()}/api/auth/forgot-password`, {
@@ -48,6 +50,9 @@ export default function ForgotPasswordScreen() {
       if (data.devOtp && typeof data.devOtp === 'string' && data.devOtp.length === 6) {
         setOtp(data.devOtp.split(''));
       }
+      if (data.previewUrl) {
+        setPreviewUrl(data.previewUrl);
+      }
       setSuccessMsg(data.message || 'OTP code sent! Please check your email inbox.');
       setStep('otp');
 
@@ -57,6 +62,7 @@ export default function ForgotPasswordScreen() {
       setLoading(false);
     }
   };
+
 
   // Step 2: Verify OTP + Reset Password in a single 2-step request
   const handleResetPassword = async (e: React.FormEvent) => {
@@ -160,6 +166,19 @@ export default function ForgotPasswordScreen() {
               <span>{successMsg}</span>
             </div>
           )}
+
+          {previewUrl && (
+            <a
+              href={previewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FF6B00]/20 hover:bg-[#FF6B00]/30 border border-[#FF6B00]/50 text-[#FF6B00] rounded-xl p-3.5 flex items-center justify-center gap-2 text-sm font-semibold transition-all hover:scale-[1.01]"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Open Sent Email in Live Web Inbox
+            </a>
+          )}
+
 
           {step === 'email' ? (
             /* STEP 1: Enter Email Form */

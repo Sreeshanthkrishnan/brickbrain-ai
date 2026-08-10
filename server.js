@@ -710,6 +710,7 @@ async function startServer() {
           otpStore.set(userKey, { otp, expiresAt });
 
           // Send real email via Nodemailer
+          let emailPreviewUrl = null;
           if (mailTransporter) {
             const mailOptions = {
               from: process.env.SMTP_FROM || '"BrickBrain Security" <no-reply@brickbrain.ai>',
@@ -734,9 +735,9 @@ async function startServer() {
             try {
               const info = await mailTransporter.sendMail(mailOptions);
               console.log(`Password reset OTP email dispatched to ${email}. MessageId: ${info.messageId}`);
-              const previewUrl = nodemailer.getTestMessageUrl(info);
-              if (previewUrl) {
-                console.log(`✉️ Ethereal Test Email Inbox Preview URL: ${previewUrl}`);
+              emailPreviewUrl = nodemailer.getTestMessageUrl(info);
+              if (emailPreviewUrl) {
+                console.log(`✉️ Ethereal Test Email Inbox Preview URL: ${emailPreviewUrl}`);
               }
             } catch (mailErr) {
               console.error(`Failed to dispatch OTP email to ${email}:`, mailErr.message);
@@ -750,7 +751,8 @@ async function startServer() {
 
           sendJSON(200, {
             message: `Verification OTP dispatched! (Dev Code: ${otp})`,
-            devOtp: otp
+            devOtp: otp,
+            previewUrl: emailPreviewUrl
           });
         });
         return;
