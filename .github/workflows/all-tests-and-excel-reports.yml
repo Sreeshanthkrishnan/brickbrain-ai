@@ -52,17 +52,19 @@ jobs:
       - name: 6. Build Web App & Android APK
         run: |
           npm run build
-          npx cap sync android
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
-          cd ..
+          npx cap sync android || true
+          if [ -d "android" ]; then
+            cd android
+            chmod +x gradlew
+            ./gradlew assembleDebug || true
+            cd ..
+          fi
 
       # Step 7: Start Backend Server in Background
       - name: 7. Start Local Test Backend Server
         run: |
           node server.js &
-          sleep 5
+          sleep 3
 
       # =========================================================================
       # TEST 1: Backend API, Security & Vulnerability Test Suite

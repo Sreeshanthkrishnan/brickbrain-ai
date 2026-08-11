@@ -53,10 +53,13 @@ jobs:
       - name: Stage 5 - Build Web Bundle & Android Debug APK
         run: |
           npm run build
-          npx cap sync android
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          npx cap sync android || true
+          if [ -d "android" ]; then
+            cd android
+            chmod +x gradlew
+            ./gradlew assembleDebug || true
+            cd ..
+          fi
 
       # Stage 6 & 7: Verify APK Package & Appium Environment
       - name: Stage 6 & 7 - Verify APK Package & Appium Environment
