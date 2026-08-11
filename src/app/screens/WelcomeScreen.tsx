@@ -10,7 +10,7 @@ export default function WelcomeScreen() {
   const [tempApiUrl, setTempApiUrl] = useState('');
 
   const handleOpenSettings = () => {
-    const currentUrl = localStorage.getItem('brickbrain_api_url') || 'http://172.23.50.234:3001';
+    const currentUrl = localStorage.getItem('brickbrain_api_url') || 'http://172.23.16.214:3001';
     setTempApiUrl(currentUrl);
     setIsSettingsOpen(true);
   };
