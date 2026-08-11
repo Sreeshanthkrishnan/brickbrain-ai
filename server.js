@@ -15,8 +15,13 @@ try {
   console.warn('Failed to set custom DNS servers, using system defaults.');
 }
 
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/brickbrain';
@@ -31,17 +36,21 @@ const otpStore = new Map();
 let mailTransporter = null;
 
 async function initMailTransporter() {
-  if (process.env.SMTP_HOST && process.env.SMTP_USER) {
+  const hasRealSmtp = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && !process.env.SMTP_PASS.includes('PASTE_YOUR');
+  if (hasRealSmtp) {
     mailTransporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587', 10),
-      secure: process.env.SMTP_SECURE === 'true',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // STARTTLS for universal network compatibility
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     });
-    console.log(`SMTP Mail Transporter configured using ${process.env.SMTP_HOST}`);
+    console.log(`✉️ Live SMTP Mail Transporter configured using smtp.gmail.com (${process.env.SMTP_USER})`);
   } else {
     try {
       const testAccount = await nodemailer.createTestAccount();
@@ -54,13 +63,14 @@ async function initMailTransporter() {
           pass: testAccount.pass,
         },
       });
-      console.log(`Ethereal Test SMTP initialized. Test Email Account: ${testAccount.user}`);
+      console.log(`✉️ Ethereal Test Inbox initialized. (Provide Google App Password in SMTP_PASS in .env for direct Gmail inbox delivery). Account: ${testAccount.user}`);
     } catch (e) {
       console.warn('Could not initialize Ethereal SMTP test account:', e.message);
     }
   }
 }
 initMailTransporter();
+
 
 
 let db;
@@ -709,27 +719,55 @@ async function startServer() {
 
           otpStore.set(userKey, { otp, expiresAt });
 
-          // Send real email via Nodemailer
+          // Send real email via Resend API / Nodemailer
           let emailPreviewUrl = null;
-          if (mailTransporter) {
+          let realSent = false;
+
+          const emailHtml = `
+            <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; background-color: #0f172a; color: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #334155;">
+              <div style="text-align: center; margin-bottom: 24px;">
+                <h2 style="color: #ff6b00; margin: 0; font-size: 24px;">BrickBrain AI</h2>
+                <p style="color: #94a3b8; margin-top: 4px; font-size: 14px;">Construction Cost Estimator & Management</p>
+              </div>
+              <h3 style="margin-top: 0; color: #f8fafc; font-size: 18px;">Password Reset Verification Code</h3>
+              <p style="color: #cbd5e1; font-size: 14px; line-height: 1.5;">You requested to reset your account password. Enter the 6-digit verification code below on the reset screen:</p>
+              <div style="background-color: #1e293b; padding: 18px; text-align: center; border-radius: 12px; font-size: 34px; font-weight: 800; letter-spacing: 8px; color: #ff6b00; border: 1px solid #ff6b00/30; margin: 24px 0;">
+                ${otp}
+              </div>
+              <p style="color: #94a3b8; font-size: 13px; margin-bottom: 0;">This OTP is valid for <strong>10 minutes</strong>. If you did not request a password reset, you can safely ignore this email.</p>
+            </div>
+          `;
+
+          if (process.env.RESEND_API_KEY) {
+            try {
+              const resendRes = await fetch('https://api.resend.com/emails', {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  from: 'BrickBrain Security <onboarding@resend.dev>',
+                  to: [email],
+                  subject: '🔒 BrickBrain Password Reset Verification Code',
+                  html: emailHtml
+                })
+              });
+              if (resendRes.ok) {
+                console.log(`✅ Live email delivered to ${email} via Resend API!`);
+                realSent = true;
+              }
+            } catch (rErr) {
+              console.warn('Resend API dispatch notice:', rErr.message);
+            }
+          }
+
+          if (!realSent && mailTransporter) {
             const mailOptions = {
               from: process.env.SMTP_FROM || '"BrickBrain Security" <no-reply@brickbrain.ai>',
               to: email,
               subject: '🔒 BrickBrain Password Reset Verification Code',
-              html: `
-                <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; background-color: #0f172a; color: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #334155;">
-                  <div style="text-align: center; margin-bottom: 24px;">
-                    <h2 style="color: #ff6b00; margin: 0; font-size: 24px;">BrickBrain AI</h2>
-                    <p style="color: #94a3b8; margin-top: 4px; font-size: 14px;">Construction Cost Estimator & Management</p>
-                  </div>
-                  <h3 style="margin-top: 0; color: #f8fafc; font-size: 18px;">Password Reset Code</h3>
-                  <p style="color: #cbd5e1; font-size: 14px; line-height: 1.5;">You requested to reset your account password. Enter the 6-digit verification code below on the reset screen:</p>
-                  <div style="background-color: #1e293b; padding: 18px; text-align: center; border-radius: 12px; font-size: 34px; font-weight: 800; letter-spacing: 8px; color: #ff6b00; border: 1px solid #ff6b00/30; margin: 24px 0;">
-                    ${otp}
-                  </div>
-                  <p style="color: #94a3b8; font-size: 13px; margin-bottom: 0;">This OTP is valid for <strong>10 minutes</strong>. If you did not request a password reset, you can safely ignore this email.</p>
-                </div>
-              `
+              html: emailHtml
             };
 
             try {
