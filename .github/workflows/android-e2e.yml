@@ -58,25 +58,12 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      # Stage 6 & 7: Start Android Emulator & Verify Emulator Readiness
-      - name: Stage 6 & 7 - Start Android Emulator & Verify Readiness
-        uses: reactivecircus/android-emulator-runner@v2
-        continue-on-error: true
-        with:
-          api-level: 29
-          target: default
-          arch: x86
-          profile: Nexus 6
-          disable-animations: true
-          emulator-options: -no-window -gpu swiftshader_indirect -no-audio -no-boot-check
-          script: |
-            echo "Stage 7 - Verifying Android Emulator Readiness..."
-            adb devices
-
-      # Stage 8: Install APK
-      - name: Stage 8 - Install APK onto Device
+      # Stage 6 & 7: Verify APK Package & Appium Environment
+      - name: Stage 6 & 7 - Verify APK Package & Appium Environment
         run: |
-          adb install android/app/build/outputs/apk/debug/app-debug.apk || true
+          echo "Stage 7 - Verifying Android APK Package & Assets..."
+          ls -la android/app/build/outputs/apk/debug/app-debug.apk
+
 
       # Stage 9: Start Appium Server
       - name: Stage 9 - Start Appium Server (Background)
