@@ -552,7 +552,7 @@ async function startServer() {
           const hashedPassword = hashPassword(password);
           const safeName = sanitizeString(name);
           const safePhone = sanitizeString(phone || '');
-          const safeRole = ['Homeowner', 'Contractor', 'Engineer', 'Architect'].includes(role) ? role : 'Homeowner';
+          const safeRole = role === 'Homeowner' ? 'Homeowner' : 'Homeowner';
 
           const newUser = {
             email: userKey,

@@ -114,9 +114,6 @@ export default function UserProfile() {
                     className="w-full bg-[#0b1329] text-white border border-white/10 rounded-xl px-3 py-2 focus:outline-none focus:border-[#FF6B00] transition-colors"
                   >
                     <option value="Homeowner">Homeowner</option>
-                    <option value="Contractor">Contractor</option>
-                    <option value="Site Supervisor">Site Supervisor</option>
-                    <option value="Architect">Architect</option>
                   </select>
                 </div>
               </div>
