@@ -13,6 +13,8 @@ services:
         value: b7f3a2e9c1d8f4a6e0b5c7d9a3f1e8c2d6b4a0e7f5c3d1a9b8e6f4c2d0a7b5
       - key: NODE_ENV
         value: production
+      - key: ALLOWED_ORIGIN
+        value: https://sreeshanthkrishnan.github.io
 
   # 2. Frontend React Application (Static Site)
   - type: web

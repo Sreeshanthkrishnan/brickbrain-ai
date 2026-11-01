@@ -212,7 +212,7 @@ function setSessionCookie(res, email) {
     `brickbrain_sid=${token}`,
     'HttpOnly',
     'Path=/',
-    `SameSite=${isProduction ? 'Strict' : 'Lax'}`,
+    `SameSite=${isProduction ? 'None' : 'Lax'}`,
     `Max-Age=${7 * 24 * 60 * 60}`, // 7 days
   ];
   if (isProduction) {
@@ -378,6 +378,40 @@ async function startServer() {
       }
     }
 
+    // Auto Migration Check for backend_db_local.json into MongoDB Atlas
+    const LOCAL_DB_FILE = path.join(__dirname, 'backend_db_local.json');
+    if (fs.existsSync(LOCAL_DB_FILE)) {
+      try {
+        const rawLocal = fs.readFileSync(LOCAL_DB_FILE, 'utf8');
+        const parsedLocal = JSON.parse(rawLocal);
+        if (parsedLocal.users && Array.isArray(parsedLocal.users)) {
+          let migratedLocalCount = 0;
+          for (const u of parsedLocal.users) {
+            if (!u.email) continue;
+            const existing = await db.collection('users').findOne({ email: u.email.toLowerCase() });
+            if (!existing) {
+              await db.collection('users').insertOne({
+                ...u,
+                email: u.email.toLowerCase()
+              });
+              migratedLocalCount++;
+            } else if (u.projects && u.projects.length > 0 && (!existing.projects || existing.projects.length === 0)) {
+              await db.collection('users').updateOne(
+                { email: u.email.toLowerCase() },
+                { $set: { projects: u.projects, activeProject: u.activeProject || u.projects[0] } }
+              );
+              migratedLocalCount++;
+            }
+          }
+          if (migratedLocalCount > 0) {
+            console.log(`Synced ${migratedLocalCount} user profiles/projects from backend_db_local.json to MongoDB Atlas.`);
+          }
+        }
+      } catch (locErr) {
+        console.warn('⚠️ backend_db_local.json sync to MongoDB Atlas skipped:', locErr.message);
+      }
+    }
+
     const server = http.createServer(async (req, res) => {
       // Security Headers
       res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -385,20 +419,41 @@ async function startServer() {
       res.setHeader('X-XSS-Protection', '1; mode=block');
       res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
-      // CORS Headers — restrict in production
-      const allowedOrigins = process.env.NODE_ENV === 'production'
-        ? [process.env.ALLOWED_ORIGIN || ''].filter(Boolean)
-        : ['http://localhost:5173', 'http://localhost:3001', 'http://127.0.0.1:5173'];
-
+      // CORS Headers — cross-platform live website and mobile APK support
       const origin = req.headers.origin;
-      if (origin && allowedOrigins.includes(origin)) {
+      const extraAllowed = (process.env.ALLOWED_ORIGIN || '')
+        .split(',')
+        .map(o => o.trim())
+        .filter(Boolean);
+
+      const staticAllowedOrigins = [
+        'https://sreeshanthkrishnan.github.io',
+        'http://localhost:5173',
+        'http://localhost:3001',
+        'http://127.0.0.1:5173',
+        'http://127.0.0.1:3001',
+        'capacitor://localhost',
+        'https://localhost',
+        'http://localhost',
+        ...extraAllowed
+      ];
+
+      const isAllowedOrigin = !origin ||
+        staticAllowedOrigins.includes(origin) ||
+        origin.endsWith('.github.io') ||
+        origin.endsWith('.onrender.com') ||
+        /^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)(:\d+)?$/.test(origin);
+
+      if (origin && isAllowedOrigin) {
         res.setHeader('Access-Control-Allow-Origin', origin);
+      } else if (!origin) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
       } else if (process.env.NODE_ENV !== 'production') {
-        // In dev, be permissive for convenience
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
       }
+
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin');
       res.setHeader('Access-Control-Allow-Credentials', 'true');
 
       if (req.method === 'OPTIONS') {

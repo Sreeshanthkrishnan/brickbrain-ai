@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Building2, LogIn, UserPlus, UserCheck, Settings, Globe, Wifi } from 'lucide-react';
+import { Building2, LogIn, UserPlus, UserCheck, Settings, Globe, Wifi, Smartphone } from 'lucide-react';
 import { useApp, getApiBaseUrl, LIVE_BACKEND_URL, LOCAL_WIFI_FALLBACK } from '../context/AppContext';
 
 export default function WelcomeScreen() {
@@ -143,6 +143,17 @@ export default function WelcomeScreen() {
               <UserCheck className="w-5 h-5" />
               <span className="font-semibold">Continue as Guest</span>
             </button>
+
+            {/* Download Android APK Link */}
+            <a
+              href="./download-apk.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-[#FF8F3D] py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all text-sm font-semibold hover:border-[#FF6B00]/40"
+            >
+              <Smartphone className="w-4 h-4" />
+              <span>Download Android App (APK)</span>
+            </a>
           </div>
 
           <p className="text-center text-white/50 text-sm">

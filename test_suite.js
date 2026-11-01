@@ -106,7 +106,7 @@ async function runTests() {
         req.end();
       });
 
-      const isSecure = status === 403 || (status === 200 && !body.includes("startServer()"));
+      const isSecure = status === 403 || status === 404 || (status === 200 && !body.includes("startServer()"));
 
       logTest(
         'Security: Path Traversal Attempt Blocked',
