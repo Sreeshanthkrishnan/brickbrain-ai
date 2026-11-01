@@ -112,10 +112,14 @@ function sanitizeString(val) {
 
 // Rate limiter (in-memory, per IP)
 const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const RATE_LIMIT_MAX = 20; // max attempts per window
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000; // 5 minutes window
+const RATE_LIMIT_MAX = 100; // Allow up to 100 requests per window to avoid blocking legit users
 
 function checkRateLimit(ip) {
+  // Allow localhost / local network without restriction
+  if (ip === '127.0.0.1' || ip === '::1' || ip === 'localhost' || ip?.startsWith('192.168.')) {
+    return true;
+  }
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
   if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
