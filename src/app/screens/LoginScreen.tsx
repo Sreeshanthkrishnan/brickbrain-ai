@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Mail, Lock, Eye, EyeOff, Fingerprint, ArrowLeft, Settings } from 'lucide-react';
-import { useApp } from '../context/AppContext';
+import { Mail, Lock, Eye, EyeOff, Fingerprint, ArrowLeft, Settings, Globe, Wifi } from 'lucide-react';
+import { useApp, getApiBaseUrl, LIVE_BACKEND_URL, LOCAL_WIFI_FALLBACK } from '../context/AppContext';
 
 export default function LoginScreen() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function LoginScreen() {
   const [tempApiUrl, setTempApiUrl] = useState('');
 
   const handleOpenSettings = () => {
-    const currentUrl = localStorage.getItem('brickbrain_api_url') || 'http://172.23.16.214:3001';
+    const currentUrl = localStorage.getItem('brickbrain_api_url') || getApiBaseUrl();
     setTempApiUrl(currentUrl);
     setIsSettingsOpen(true);
   };
@@ -110,7 +110,7 @@ export default function LoginScreen() {
             <div className="space-y-1">
               <h3 className="text-xl font-bold text-white">Configure Backend</h3>
               <p className="text-white/60 text-xs">
-                Enter your PC's IP address and port to connect the app to the backend.
+                Connect the mobile APK to your live cloud server or local PC server.
               </p>
             </div>
             <div className="space-y-2">
@@ -119,9 +119,30 @@ export default function LoginScreen() {
                 type="text"
                 value={tempApiUrl}
                 onChange={(e) => setTempApiUrl(e.target.value)}
-                placeholder="e.g. http://192.168.1.15:3001"
+                placeholder="e.g. https://brickbrain-api.onrender.com"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-[#FF6B00] transition-colors text-sm"
               />
+              {/* Quick Preset Buttons */}
+              <div className="flex gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => setTempApiUrl(LIVE_BACKEND_URL)}
+                  className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[11px] text-[#FF8F3D] font-medium transition-all"
+                  title="Switch to Live Cloud"
+                >
+                  <Globe className="w-3 h-3" />
+                  Live Cloud
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTempApiUrl(LOCAL_WIFI_FALLBACK)}
+                  className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[11px] text-white/70 hover:text-white font-medium transition-all"
+                  title="Switch to Local Wi-Fi"
+                >
+                  <Wifi className="w-3 h-3" />
+                  Local Wi-Fi
+                </button>
+              </div>
             </div>
             <div className="flex gap-3 pt-2">
               <button

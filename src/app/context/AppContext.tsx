@@ -1,6 +1,37 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const API_URL = (typeof window !== 'undefined' && localStorage.getItem('brickbrain_api_url')) || import.meta.env.VITE_API_URL || (typeof window !== 'undefined' && (window as any).Capacitor ? 'http://172.23.16.214:3001' : '');
+export const LIVE_BACKEND_URL = 'https://brickbrain-api.onrender.com';
+export const LOCAL_WIFI_FALLBACK = 'http://192.168.1.10:3001';
+
+export function getApiBaseUrl(): string {
+  if (typeof window === 'undefined') return '';
+
+  // 1. User manual override stored in in-app settings
+  const custom = localStorage.getItem('brickbrain_api_url');
+  if (custom && custom.trim()) {
+    return custom.trim().replace(/\/+$/, '');
+  }
+
+  // 2. Vite environment variable
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+  }
+
+  // 3. Local development in browser (non-Capacitor localhost)
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const isCapacitor = typeof window !== 'undefined' && !!(window as any).Capacitor;
+
+  if (isLocalhost && !isCapacitor) {
+    // Relative path works with Vite dev server proxy
+    return '';
+  }
+
+  // 4. Default for Live Production Website and Mobile APK
+  return LIVE_BACKEND_URL;
+}
+
+export const API_URL = getApiBaseUrl();
+
 
 
 

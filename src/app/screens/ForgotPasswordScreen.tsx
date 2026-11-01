@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Mail, KeyRound, ArrowLeft, Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Loader2, ExternalLink } from 'lucide-react';
+import { getApiBaseUrl } from '../context/AppContext';
 
 export default function ForgotPasswordScreen() {
   const navigate = useNavigate();
@@ -15,10 +16,7 @@ export default function ForgotPasswordScreen() {
   const [previewUrl, setPreviewUrl] = useState('');
 
   const getApiUrl = () => {
-    const customUrl = localStorage.getItem('brickbrain_api_url');
-    if (customUrl) return customUrl;
-    // Default to relative path so Vite proxy (or production relative path) works seamlessly
-    return '';
+    return getApiBaseUrl();
   };
 
 

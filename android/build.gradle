@@ -27,3 +27,14 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+    afterEvaluate { project ->
+        project.tasks.configureEach { task ->
+            if (task.name.startsWith("extract") && task.name.endsWith("Annotations")) {
+                task.enabled = false
+            }
+        }
+    }
+}
+
